@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SeatAvailabilityRQ EchoToken="{{$guid}}" Version="IATA2016.2" xmlns="http://www.iata.org/IATA/EDIST">
+    <Document>
+        <ReferenceVersion>1.0</ReferenceVersion>
+    </Document>
+    <Party>
+        <Sender>
+            <TravelAgencySender>
+                <Name>JR TECHNOLOGIES</Name>
+                <IATA_Number>20200154</IATA_Number>
+                <AgencyID>00010080</AgencyID>
+            </TravelAgencySender>
+        </Sender>
+        <Recipient>
+            <ORA_Recipient>
+                <AirlineID>C9</AirlineID>
+            </ORA_Recipient>
+        </Recipient>
+    </Party>
+    <Travelers>
+        <Traveler>
+            <AnonymousTraveler>
+                <PTC>ADT</PTC>
+            </AnonymousTraveler>
+        </Traveler>
+    </Travelers>
+    <Query>
+        <OriginDestination>
+            <OriginDestinationReferences>OD1</OriginDestinationReferences>
+        </OriginDestination>
+    </Query>
+    <DataLists>
+        <FlightSegmentList>
+            <FlightSegment SegmentKey="SEG1">
+                <Departure>
+                    <AirportCode>LHR</AirportCode>
+                    <Date>2017-08-29</Date>
+                    <Time>08:00</Time>
+                    <AirportName>Heathrow Airport</AirportName>
+                </Departure>
+                <Arrival>
+                    <AirportCode>BCN</AirportCode>
+                    <Date>2017-08-29</Date>
+                    <Time>10:59</Time>
+                    <AirportName>Barcelona–El Prat Airport</AirportName>
+                </Arrival>
+                <MarketingCarrier>
+                    <AirlineID>C9</AirlineID>
+                    <FlightNumber>070</FlightNumber>
+                </MarketingCarrier>
+                <OperatingCarrier>
+                    <AirlineID>C9</AirlineID>
+                    <FlightNumber>070</FlightNumber>
+                </OperatingCarrier>
+                <ClassOfService>
+                    <Code>C</Code>
+                </ClassOfService>
+            </FlightSegment>
+        </FlightSegmentList>
+        <FlightList>
+            <Flight FlightKey="FL1">
+                <SegmentReferences>SEG1</SegmentReferences>
+            </Flight>
+        </FlightList>
+        <OriginDestinationList>
+            <OriginDestination OriginDestinationKey="OD1">
+                <DepartureCode>LHR</DepartureCode>
+                <ArrivalCode>BCN</ArrivalCode>
+                <FlightReferences>FL1</FlightReferences>
+            </OriginDestination>
+        </OriginDestinationList>
+    </DataLists>
+</SeatAvailabilityRQ>

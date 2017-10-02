@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlightPriceRQ EchoToken="{{$guid}}" Version="IATA2016.2" xmlns="http://www.iata.org/IATA/EDIST">
+	<Document>
+		<ReferenceVersion>1.0</ReferenceVersion>
+	</Document>
+	<Party>
+		<Sender>
+			<TravelAgencySender>
+				<Name>JR TECHNOLOGIES</Name>
+				<IATA_Number>20200154</IATA_Number>
+				<AgencyID>00010080</AgencyID>
+			</TravelAgencySender>
+		</Sender>
+		<Recipient>
+			<ORA_Recipient>
+				<AirlineID>C9</AirlineID>
+			</ORA_Recipient>
+		</Recipient>
+	</Party>
+	<Travelers>
+		<Traveler>
+			<AnonymousTraveler ObjectKey="SH1">
+				<PTC Quantity="1">ADT</PTC>
+			</AnonymousTraveler>
+		</Traveler>
+	</Travelers>
+	<Query>
+		<OriginDestination>
+			<Flight>
+				<Departure>
+					<AirportCode>LHR</AirportCode>
+					<Date>2017-08-29</Date>
+					<Time>08:00</Time>
+					<AirportName>Heathrow Airport</AirportName>
+				</Departure>
+				<Arrival>
+					<AirportCode>BCN</AirportCode>
+					<Date>2017-08-29</Date>
+					<Time>10:59</Time>
+					<AirportName>Barcelona–El Prat Airport</AirportName>
+				</Arrival>
+				<MarketingCarrier>
+					<AirlineID>C9</AirlineID>
+					<FlightNumber>070</FlightNumber>
+				</MarketingCarrier>
+				<OperatingCarrier>
+					<AirlineID>C9</AirlineID>
+					<FlightNumber>070</FlightNumber>
+				</OperatingCarrier>
+				<ClassOfService>
+					<Code>C</Code>
+				</ClassOfService>
+			</Flight>
+		</OriginDestination>
+		<OriginDestination>
+			<Flight>
+				<Departure>
+					<AirportCode>BCN</AirportCode>
+					<Date>2017-08-30</Date>
+					<Time>07:50</Time>
+					<AirportName>Barcelona–El Prat Airport</AirportName>
+				</Departure>
+				<Arrival>
+					<AirportCode>CDG</AirportCode>
+					<Date>2017-08-30</Date>
+					<Time>09:27</Time>
+					<AirportName>Charles de Gaulle Airport</AirportName>
+				</Arrival>
+				<MarketingCarrier>
+					<AirlineID>C9</AirlineID>
+					<FlightNumber>049</FlightNumber>
+				</MarketingCarrier>
+				<OperatingCarrier>
+					<AirlineID>C9</AirlineID>
+					<FlightNumber>049</FlightNumber>
+				</OperatingCarrier>
+				<ClassOfService>
+					<Code>C</Code>
+				</ClassOfService>
+			</Flight>
+		</OriginDestination>
+	</Query>
+</FlightPriceRQ>

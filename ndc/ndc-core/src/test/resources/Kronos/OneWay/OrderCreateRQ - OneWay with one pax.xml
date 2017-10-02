@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OrderCreateRQ EchoToken="f91d5785dfeb50ac26a34e4823410a8c012a9ad6" TimeStamp="2017-08-22T12:45:54.882Z"
+               TransactionIdentifier="TRN12345" Version="IATA2016.2" xmlns="http://www.iata.org/IATA/EDIST"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://www.iata.org/IATA/EDIST ../OrderCreateRQ.xsd">
+    <Document>
+        <Name>IATA NDC GATEWAY</Name>
+        <ReferenceVersion>1.0</ReferenceVersion>
+    </Document>
+    <Party>
+        <Sender>
+            <TravelAgencySender>
+                <Name>Athena Air</Name>
+                <Type>Airline Agent</Type>
+                <Contacts>
+                    <Contact>
+                        <EmailContact>
+                            <Address>test@example.org</Address>
+                        </EmailContact>
+                    </Contact>
+                </Contacts>
+                <PseudoCity>A4A</PseudoCity>
+                <IATA_Number>98417900</IATA_Number>
+                <AgencyID>9A</AgencyID>
+                <AgentUser>
+                    <Name>IATA Developer</Name>
+                    <AgentUserID>developer.test</AgentUserID>
+                </AgentUser>
+            </TravelAgencySender>
+        </Sender>
+    </Party>
+    <Query>
+        <Passengers>
+            <Passenger ObjectKey="SH1">
+                <PTC Quantity="1">ADT</PTC>
+                <Name>
+                    <Surname>Yadav</Surname>
+                    <Given>Mithalesh</Given>
+                    <Middle>Ignatius</Middle>
+                </Name>
+                <Contacts>
+                    <Contact>
+                        <EmailContact>
+                            <Address>mithalesh@jrtechnologies.com</Address>
+                        </EmailContact>
+                    </Contact>
+                </Contacts>
+                <Gender>Male</Gender>
+            </Passenger>
+        </Passengers>
+        <OrderItems>
+            <ShoppingResponse>
+                <Owner>C9</Owner>
+                <ResponseID>201-006ad721a815460ab3c1187e850cbab1</ResponseID>
+                <Offers>
+                    <Offer>
+                        <OfferID Owner="C9">1</OfferID>
+                        <OfferItems>
+                            <OfferItem>
+                                <OfferItemID Owner="C9">1_1</OfferItemID>
+                                <Passengers>
+                                    <PassengerReference>SH1</PassengerReference>
+                                </Passengers>
+                            </OfferItem>
+                        </OfferItems>
+                        <TotalPrice>
+                            <SimpleCurrencyPrice Code="USD">667.66</SimpleCurrencyPrice>
+                        </TotalPrice>
+                    </Offer>
+                </Offers>
+            </ShoppingResponse>
+        </OrderItems>
+        <Payments>
+            <Payment>
+                <Method>
+                    <PaymentCard>
+                        <CardType>CREDIT</CardType>
+                        <CardCode>VI</CardCode>
+                        <CardNumber>1111222233334444</CardNumber>
+                        <SeriesCode>584</SeriesCode>
+                        <CardHolderName>WERNHER VON BRAUN</CardHolderName>
+                        <EffectiveExpireDate>
+                            <Effective>0322</Effective>
+                            <Expiration>1022</Expiration>
+                        </EffectiveExpireDate>
+                    </PaymentCard>
+                </Method>
+                <Amount Code="USD" Taxable="true">667.66</Amount>
+                <Payer>
+                    <Name>
+                        <Surname>Yadav</Surname>
+                        <Given>Mithalesh</Given>
+                    </Name>
+                    <Contacts>
+                        <Contact>
+                            <AddressContact>
+                                <Street>22 Main Street</Street>
+                                <CityName>FRA</CityName>
+                                <PostalCode>14201</PostalCode>
+                                <CountryCode>DE</CountryCode>
+                            </AddressContact>
+                            <EmailContact>
+                                <Address>mithalesh@jrtechnologies.com</Address>
+                            </EmailContact>
+                        </Contact>
+                    </Contacts>
+                </Payer>
+            </Payment>
+        </Payments>
+        <Metadata>
+            <Other>
+                <OtherMetadata>
+                    <CurrencyMetadatas>
+                        <CurrencyMetadata MetadataKey="USD">
+                            <Decimals>2</Decimals>
+                        </CurrencyMetadata>
+                    </CurrencyMetadatas>
+                </OtherMetadata>
+            </Other>
+        </Metadata>
+    </Query>
+</OrderCreateRQ>

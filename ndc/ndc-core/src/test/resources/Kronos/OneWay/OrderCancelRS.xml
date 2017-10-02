@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OrderCancelRS Version="IATA2016.2" xmlns="http://www.iata.org/IATA/EDIST"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <Document>
+        <Name>KRONOS NDC GATEWAY</Name>
+        <ReferenceVersion>1.0</ReferenceVersion>
+    </Document>
+    <Success/>
+    <Response>
+        <OrderCancelProcessing/>
+        <OrderReference>IDTOREMOVE</OrderReference>
+    </Response>
+</OrderCancelRS>

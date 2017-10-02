@@ -1,0 +1,1350 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ItinReshopRS EchoToken="94db797bcf95516601394ba445c3288ef95cc053" TimeStamp="2017-08-22T15:37:55.788+03:00"
+              Version="IATA2016.2" xmlns="http://www.iata.org/IATA/EDIST">
+    <Document>
+        <Name>KRONOS NDC GATEWAY</Name>
+        <ReferenceVersion>20170822_152801</ReferenceVersion>
+    </Document>
+    <Success/>
+    <Response>
+        <ReShoppingResponseID>
+            <ResponseID>107-4065b50decbc417592003470fab14bf3</ResponseID>
+        </ReShoppingResponseID>
+        <Passengers/>
+        <Order>
+            <OrderID Owner="C9">D12WD5</OrderID>
+            <OrderItems>
+                <OrderItem>
+                    <OrderItemID Owner="C9">ORDERITEM1</OrderItemID>
+                </OrderItem>
+            </OrderItems>
+        </Order>
+        <ReShopOffers>
+            <ReShopOffer>
+                <OfferID Owner="C9">1</OfferID>
+                <TimeLimits>
+                    <OfferExpiration Timestamp="2017-08-22T13:36:15.907Z"/>
+                </TimeLimits>
+                <TotalPrice>
+                    <DetailCurrencyPrice>
+                        <Total Code="USD">239.62</Total>
+                        <Details>
+                            <Detail>
+                                <SubTotal Code="USD">111.00</SubTotal>
+                                <Application>Base Fare</Application>
+                            </Detail>
+                        </Details>
+                        <Taxes>
+                            <Total Code="USD">128.62</Total>
+                        </Taxes>
+                    </DetailCurrencyPrice>
+                </TotalPrice>
+                <ReShopPricedOffer>
+                    <OfferPrice OfferItemID="1_1">
+                        <RequestedDate>
+                            <PriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="USD">239.62</SimpleCurrencyPrice>
+                                </TotalAmount>
+                                <BaseAmount Code="USD">111.00</BaseAmount>
+                                <Taxes>
+                                    <Total Code="USD">128.62</Total>
+                                </Taxes>
+                            </PriceDetail>
+                            <Associations>
+                                <AssociatedTraveler>
+                                    <TravelerReferences>SH1</TravelerReferences>
+                                </AssociatedTraveler>
+                            </Associations>
+                        </RequestedDate>
+                    </OfferPrice>
+                    <Associations>
+                        <ApplicableFlight>
+                            <FlightSegmentReference ref="SEG_BCNCDG_1">
+                                <Cabin>
+                                    <CabinDesignator>M</CabinDesignator>
+                                </Cabin>
+                            </FlightSegmentReference>
+                            <OriginDestinationReferences>BCNCDG</OriginDestinationReferences>
+                            <FlightReferences>FL_BCNCDG_1</FlightReferences>
+                        </ApplicableFlight>
+                        <PriceClass>
+                            <PriceClassReference>PC3</PriceClassReference>
+                        </PriceClass>
+                    </Associations>
+                </ReShopPricedOffer>
+                <ReshopDifferential>
+                    <OriginalOrder>
+                        <Total>
+                            <Amount>555.36</Amount>
+                        </Total>
+                    </OriginalOrder>
+                    <NewOffer>
+                        <Total>
+                            <Amount>239.62</Amount>
+                        </Total>
+                    </NewOffer>
+                    <PenaltyAmount>
+                        <Total>
+                            <Amount>0.00</Amount>
+                        </Total>
+                    </PenaltyAmount>
+                    <FeesAmount>
+                        <Total>
+                            <Amount>0.00</Amount>
+                        </Total>
+                    </FeesAmount>
+                    <ReshopDue>
+                        <ByAirline>
+                            <Total>
+                                <Amount>-315.74</Amount>
+                            </Total>
+                        </ByAirline>
+                    </ReshopDue>
+                </ReshopDifferential>
+            </ReShopOffer>
+            <ReShopOffer>
+                <OfferID Owner="C9">2</OfferID>
+                <TimeLimits>
+                    <OfferExpiration Timestamp="2017-08-22T13:36:15.907Z"/>
+                </TimeLimits>
+                <TotalPrice>
+                    <DetailCurrencyPrice>
+                        <Total Code="USD">176.62</Total>
+                        <Details>
+                            <Detail>
+                                <SubTotal Code="USD">48.00</SubTotal>
+                                <Application>Base Fare</Application>
+                            </Detail>
+                        </Details>
+                        <Taxes>
+                            <Total Code="USD">128.62</Total>
+                        </Taxes>
+                    </DetailCurrencyPrice>
+                </TotalPrice>
+                <Penalty>
+                    <Details>
+                        <Detail>
+                            <Type>Changes/Cancellation/NoShow</Type>
+                            <Amounts>
+                                <Amount>
+                                    <CurrencyAmountValue Code="USD">250.00</CurrencyAmountValue>
+                                    <ApplicableFeeRemarks>
+                                        <Remark>The penalty for changes or cancellations after the order is placed is @
+                                            Euros. Non refundable for no-show.
+                                        </Remark>
+                                    </ApplicableFeeRemarks>
+                                </Amount>
+                            </Amounts>
+                        </Detail>
+                    </Details>
+                </Penalty>
+                <ReShopPricedOffer>
+                    <OfferPrice OfferItemID="2_1">
+                        <RequestedDate>
+                            <PriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="USD">176.62</SimpleCurrencyPrice>
+                                </TotalAmount>
+                                <BaseAmount Code="USD">48.00</BaseAmount>
+                                <Taxes>
+                                    <Total Code="USD">128.62</Total>
+                                </Taxes>
+                            </PriceDetail>
+                            <Associations>
+                                <AssociatedTraveler>
+                                    <TravelerReferences>SH1</TravelerReferences>
+                                </AssociatedTraveler>
+                            </Associations>
+                        </RequestedDate>
+                    </OfferPrice>
+                    <Associations>
+                        <ApplicableFlight>
+                            <FlightSegmentReference ref="SEG_BCNCDG_1">
+                                <Cabin>
+                                    <CabinDesignator>M</CabinDesignator>
+                                </Cabin>
+                            </FlightSegmentReference>
+                            <OriginDestinationReferences>BCNCDG</OriginDestinationReferences>
+                            <FlightReferences>FL_BCNCDG_1</FlightReferences>
+                        </ApplicableFlight>
+                        <PriceClass>
+                            <PriceClassReference>PC1</PriceClassReference>
+                        </PriceClass>
+                    </Associations>
+                </ReShopPricedOffer>
+                <ReshopDifferential>
+                    <OriginalOrder>
+                        <Total>
+                            <Amount>555.36</Amount>
+                        </Total>
+                    </OriginalOrder>
+                    <NewOffer>
+                        <Total>
+                            <Amount>176.62</Amount>
+                        </Total>
+                    </NewOffer>
+                    <PenaltyAmount>
+                        <Total>
+                            <Amount>0.00</Amount>
+                        </Total>
+                    </PenaltyAmount>
+                    <FeesAmount>
+                        <Total>
+                            <Amount>0.00</Amount>
+                        </Total>
+                    </FeesAmount>
+                    <ReshopDue>
+                        <ByAirline>
+                            <Total>
+                                <Amount>-378.74</Amount>
+                            </Total>
+                        </ByAirline>
+                    </ReshopDue>
+                </ReshopDifferential>
+            </ReShopOffer>
+            <ReShopOffer>
+                <OfferID Owner="C9">3</OfferID>
+                <TimeLimits>
+                    <OfferExpiration Timestamp="2017-08-22T13:36:15.907Z"/>
+                </TimeLimits>
+                <TotalPrice>
+                    <DetailCurrencyPrice>
+                        <Total Code="USD">301.62</Total>
+                        <Details>
+                            <Detail>
+                                <SubTotal Code="USD">173.00</SubTotal>
+                                <Application>Base Fare</Application>
+                            </Detail>
+                        </Details>
+                        <Taxes>
+                            <Total Code="USD">128.62</Total>
+                        </Taxes>
+                    </DetailCurrencyPrice>
+                </TotalPrice>
+                <ReShopPricedOffer>
+                    <OfferPrice OfferItemID="3_1">
+                        <RequestedDate>
+                            <PriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="USD">301.62</SimpleCurrencyPrice>
+                                </TotalAmount>
+                                <BaseAmount Code="USD">173.00</BaseAmount>
+                                <Taxes>
+                                    <Total Code="USD">128.62</Total>
+                                </Taxes>
+                            </PriceDetail>
+                            <Associations>
+                                <AssociatedTraveler>
+                                    <TravelerReferences>SH1</TravelerReferences>
+                                </AssociatedTraveler>
+                            </Associations>
+                        </RequestedDate>
+                    </OfferPrice>
+                    <Associations>
+                        <ApplicableFlight>
+                            <FlightSegmentReference ref="SEG_BCNCDG_1">
+                                <Cabin>
+                                    <CabinDesignator>M</CabinDesignator>
+                                </Cabin>
+                            </FlightSegmentReference>
+                            <OriginDestinationReferences>BCNCDG</OriginDestinationReferences>
+                            <FlightReferences>FL_BCNCDG_1</FlightReferences>
+                        </ApplicableFlight>
+                        <PriceClass>
+                            <PriceClassReference>PC2</PriceClassReference>
+                        </PriceClass>
+                    </Associations>
+                </ReShopPricedOffer>
+                <ReshopDifferential>
+                    <OriginalOrder>
+                        <Total>
+                            <Amount>555.36</Amount>
+                        </Total>
+                    </OriginalOrder>
+                    <NewOffer>
+                        <Total>
+                            <Amount>301.62</Amount>
+                        </Total>
+                    </NewOffer>
+                    <PenaltyAmount>
+                        <Total>
+                            <Amount>0.00</Amount>
+                        </Total>
+                    </PenaltyAmount>
+                    <FeesAmount>
+                        <Total>
+                            <Amount>0.00</Amount>
+                        </Total>
+                    </FeesAmount>
+                    <ReshopDue>
+                        <ByAirline>
+                            <Total>
+                                <Amount>-253.74</Amount>
+                            </Total>
+                        </ByAirline>
+                    </ReshopDue>
+                </ReshopDifferential>
+            </ReShopOffer>
+            <ReShopOffer>
+                <OfferID Owner="C9">4</OfferID>
+                <TimeLimits>
+                    <OfferExpiration Timestamp="2017-08-22T13:36:15.907Z"/>
+                </TimeLimits>
+                <TotalPrice>
+                    <DetailCurrencyPrice>
+                        <Total Code="USD">191.73</Total>
+                        <Details>
+                            <Detail>
+                                <SubTotal Code="USD">96.00</SubTotal>
+                                <Application>Base Fare</Application>
+                            </Detail>
+                        </Details>
+                        <Taxes>
+                            <Total Code="USD">95.73</Total>
+                        </Taxes>
+                    </DetailCurrencyPrice>
+                </TotalPrice>
+                <ReShopPricedOffer>
+                    <OfferPrice OfferItemID="4_1">
+                        <RequestedDate>
+                            <PriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="USD">191.73</SimpleCurrencyPrice>
+                                </TotalAmount>
+                                <BaseAmount Code="USD">96.00</BaseAmount>
+                                <Taxes>
+                                    <Total Code="USD">95.73</Total>
+                                </Taxes>
+                            </PriceDetail>
+                            <Associations>
+                                <AssociatedTraveler>
+                                    <TravelerReferences>SH1</TravelerReferences>
+                                </AssociatedTraveler>
+                            </Associations>
+                        </RequestedDate>
+                    </OfferPrice>
+                    <Associations>
+                        <ApplicableFlight>
+                            <FlightSegmentReference ref="SEG_CDGFRA_2">
+                                <Cabin>
+                                    <CabinDesignator>M</CabinDesignator>
+                                </Cabin>
+                            </FlightSegmentReference>
+                            <OriginDestinationReferences>CDGFRA</OriginDestinationReferences>
+                            <FlightReferences>FL_CDGFRA_2</FlightReferences>
+                        </ApplicableFlight>
+                        <PriceClass>
+                            <PriceClassReference>PC3</PriceClassReference>
+                        </PriceClass>
+                    </Associations>
+                </ReShopPricedOffer>
+                <ReshopDifferential>
+                    <OriginalOrder>
+                        <Total>
+                            <Amount>555.36</Amount>
+                        </Total>
+                    </OriginalOrder>
+                    <NewOffer>
+                        <Total>
+                            <Amount>191.73</Amount>
+                        </Total>
+                    </NewOffer>
+                    <PenaltyAmount>
+                        <Total>
+                            <Amount>0.00</Amount>
+                        </Total>
+                    </PenaltyAmount>
+                    <FeesAmount>
+                        <Total>
+                            <Amount>0.00</Amount>
+                        </Total>
+                    </FeesAmount>
+                    <ReshopDue>
+                        <ByAirline>
+                            <Total>
+                                <Amount>-363.63</Amount>
+                            </Total>
+                        </ByAirline>
+                    </ReshopDue>
+                </ReshopDifferential>
+            </ReShopOffer>
+            <ReShopOffer>
+                <OfferID Owner="C9">5</OfferID>
+                <TimeLimits>
+                    <OfferExpiration Timestamp="2017-08-22T13:36:15.907Z"/>
+                </TimeLimits>
+                <TotalPrice>
+                    <DetailCurrencyPrice>
+                        <Total Code="USD">129.73</Total>
+                        <Details>
+                            <Detail>
+                                <SubTotal Code="USD">34.00</SubTotal>
+                                <Application>Base Fare</Application>
+                            </Detail>
+                        </Details>
+                        <Taxes>
+                            <Total Code="USD">95.73</Total>
+                        </Taxes>
+                    </DetailCurrencyPrice>
+                </TotalPrice>
+                <Penalty>
+                    <Details>
+                        <Detail>
+                            <Type>Changes/Cancellation/NoShow</Type>
+                            <Amounts>
+                                <Amount>
+                                    <CurrencyAmountValue Code="USD">250.00</CurrencyAmountValue>
+                                    <ApplicableFeeRemarks>
+                                        <Remark>The penalty for changes or cancellations after the order is placed is @
+                                            Euros. Non refundable for no-show.
+                                        </Remark>
+                                    </ApplicableFeeRemarks>
+                                </Amount>
+                            </Amounts>
+                        </Detail>
+                    </Details>
+                </Penalty>
+                <ReShopPricedOffer>
+                    <OfferPrice OfferItemID="5_1">
+                        <RequestedDate>
+                            <PriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="USD">129.73</SimpleCurrencyPrice>
+                                </TotalAmount>
+                                <BaseAmount Code="USD">34.00</BaseAmount>
+                                <Taxes>
+                                    <Total Code="USD">95.73</Total>
+                                </Taxes>
+                            </PriceDetail>
+                            <Associations>
+                                <AssociatedTraveler>
+                                    <TravelerReferences>SH1</TravelerReferences>
+                                </AssociatedTraveler>
+                            </Associations>
+                        </RequestedDate>
+                    </OfferPrice>
+                    <Associations>
+                        <ApplicableFlight>
+                            <FlightSegmentReference ref="SEG_CDGFRA_2">
+                                <Cabin>
+                                    <CabinDesignator>M</CabinDesignator>
+                                </Cabin>
+                            </FlightSegmentReference>
+                            <OriginDestinationReferences>CDGFRA</OriginDestinationReferences>
+                            <FlightReferences>FL_CDGFRA_2</FlightReferences>
+                        </ApplicableFlight>
+                        <PriceClass>
+                            <PriceClassReference>PC1</PriceClassReference>
+                        </PriceClass>
+                    </Associations>
+                </ReShopPricedOffer>
+                <ReshopDifferential>
+                    <OriginalOrder>
+                        <Total>
+                            <Amount>555.36</Amount>
+                        </Total>
+                    </OriginalOrder>
+                    <NewOffer>
+                        <Total>
+                            <Amount>129.73</Amount>
+                        </Total>
+                    </NewOffer>
+                    <PenaltyAmount>
+                        <Total>
+                            <Amount>0.00</Amount>
+                        </Total>
+                    </PenaltyAmount>
+                    <FeesAmount>
+                        <Total>
+                            <Amount>0.00</Amount>
+                        </Total>
+                    </FeesAmount>
+                    <ReshopDue>
+                        <ByAirline>
+                            <Total>
+                                <Amount>-425.63</Amount>
+                            </Total>
+                        </ByAirline>
+                    </ReshopDue>
+                </ReshopDifferential>
+            </ReShopOffer>
+            <ReShopOffer>
+                <OfferID Owner="C9">6</OfferID>
+                <TimeLimits>
+                    <OfferExpiration Timestamp="2017-08-22T13:36:15.907Z"/>
+                </TimeLimits>
+                <TotalPrice>
+                    <DetailCurrencyPrice>
+                        <Total Code="USD">254.73</Total>
+                        <Details>
+                            <Detail>
+                                <SubTotal Code="USD">159.00</SubTotal>
+                                <Application>Base Fare</Application>
+                            </Detail>
+                        </Details>
+                        <Taxes>
+                            <Total Code="USD">95.73</Total>
+                        </Taxes>
+                    </DetailCurrencyPrice>
+                </TotalPrice>
+                <ReShopPricedOffer>
+                    <OfferPrice OfferItemID="6_1">
+                        <RequestedDate>
+                            <PriceDetail>
+                                <TotalAmount>
+                                    <SimpleCurrencyPrice Code="USD">254.73</SimpleCurrencyPrice>
+                                </TotalAmount>
+                                <BaseAmount Code="USD">159.00</BaseAmount>
+                                <Taxes>
+                                    <Total Code="USD">95.73</Total>
+                                </Taxes>
+                            </PriceDetail>
+                            <Associations>
+                                <AssociatedTraveler>
+                                    <TravelerReferences>SH1</TravelerReferences>
+                                </AssociatedTraveler>
+                            </Associations>
+                        </RequestedDate>
+                    </OfferPrice>
+                    <Associations>
+                        <ApplicableFlight>
+                            <FlightSegmentReference ref="SEG_CDGFRA_2">
+                                <Cabin>
+                                    <CabinDesignator>M</CabinDesignator>
+                                </Cabin>
+                            </FlightSegmentReference>
+                            <OriginDestinationReferences>CDGFRA</OriginDestinationReferences>
+                            <FlightReferences>FL_CDGFRA_2</FlightReferences>
+                        </ApplicableFlight>
+                        <PriceClass>
+                            <PriceClassReference>PC2</PriceClassReference>
+                        </PriceClass>
+                    </Associations>
+                </ReShopPricedOffer>
+                <ReshopDifferential>
+                    <OriginalOrder>
+                        <Total>
+                            <Amount>555.36</Amount>
+                        </Total>
+                    </OriginalOrder>
+                    <NewOffer>
+                        <Total>
+                            <Amount>254.73</Amount>
+                        </Total>
+                    </NewOffer>
+                    <PenaltyAmount>
+                        <Total>
+                            <Amount>0.00</Amount>
+                        </Total>
+                    </PenaltyAmount>
+                    <FeesAmount>
+                        <Total>
+                            <Amount>0.00</Amount>
+                        </Total>
+                    </FeesAmount>
+                    <ReshopDue>
+                        <ByAirline>
+                            <Total>
+                                <Amount>-300.63</Amount>
+                            </Total>
+                        </ByAirline>
+                    </ReshopDue>
+                </ReshopDifferential>
+            </ReShopOffer>
+        </ReShopOffers>
+        <DataLists>
+            <RecognizedTravelerList>
+                <RecognizedTraveler ObjectKey="SH1">
+                    <PTC>ADT</PTC>
+                    <Name>
+                        <Surname>Smith</Surname>
+                        <Given>Johnny</Given>
+                    </Name>
+                    <Gender>Male</Gender>
+                    <Contacts>
+                        <Contact>
+                            <EmailContact>
+                                <Address>j.smith@gmail.com</Address>
+                            </EmailContact>
+                        </Contact>
+                    </Contacts>
+                </RecognizedTraveler>
+            </RecognizedTravelerList>
+            <FlightSegmentList>
+                <FlightSegment SegmentKey="SEG_BCNCDG_1">
+                    <Departure>
+                        <AirportCode>BCN</AirportCode>
+                        <Date>2017-08-30</Date>
+                        <Time>07:50</Time>
+                        <AirportName>Barcelona–El Prat Airport</AirportName>
+                    </Departure>
+                    <Arrival>
+                        <AirportCode>CDG</AirportCode>
+                        <Date>2017-08-30</Date>
+                        <Time>09:27</Time>
+                        <AirportName>Charles de Gaulle Airport</AirportName>
+                    </Arrival>
+                    <MarketingCarrier>
+                        <AirlineID>C9</AirlineID>
+                        <FlightNumber>049</FlightNumber>
+                    </MarketingCarrier>
+                    <OperatingCarrier>
+                        <AirlineID>C9</AirlineID>
+                        <FlightNumber>049</FlightNumber>
+                    </OperatingCarrier>
+                    <Equipment>
+                        <AircraftCode>320</AircraftCode>
+                        <Name>A320</Name>
+                    </Equipment>
+                    <FlightDetail>
+                        <FlightDuration>
+                            <Value>P0DT1H37M0S</Value>
+                        </FlightDuration>
+                    </FlightDetail>
+                </FlightSegment>
+                <FlightSegment SegmentKey="SEG_CDGFRA_2">
+                    <Departure>
+                        <AirportCode>CDG</AirportCode>
+                        <Date>2017-08-30</Date>
+                        <Time>20:20</Time>
+                        <AirportName>Charles de Gaulle Airport</AirportName>
+                    </Departure>
+                    <Arrival>
+                        <AirportCode>FRA</AirportCode>
+                        <Date>2017-08-30</Date>
+                        <Time>21:28</Time>
+                        <AirportName>Frankfurt Airport</AirportName>
+                    </Arrival>
+                    <MarketingCarrier>
+                        <AirlineID>C9</AirlineID>
+                        <FlightNumber>115</FlightNumber>
+                    </MarketingCarrier>
+                    <OperatingCarrier>
+                        <AirlineID>C9</AirlineID>
+                        <FlightNumber>115</FlightNumber>
+                    </OperatingCarrier>
+                    <Equipment>
+                        <AircraftCode>319</AircraftCode>
+                        <Name>A319</Name>
+                    </Equipment>
+                    <FlightDetail>
+                        <FlightDuration>
+                            <Value>P0DT1H8M0S</Value>
+                        </FlightDuration>
+                    </FlightDetail>
+                </FlightSegment>
+            </FlightSegmentList>
+            <FlightList>
+                <Flight FlightKey="FL_BCNCDG_1">
+                    <Journey>
+                        <Time>P0DT1H37M0S</Time>
+                    </Journey>
+                    <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                </Flight>
+                <Flight FlightKey="FL_CDGFRA_2">
+                    <Journey>
+                        <Time>P0DT1H8M0S</Time>
+                    </Journey>
+                    <SegmentReferences>SEG_CDGFRA_2</SegmentReferences>
+                </Flight>
+            </FlightList>
+            <OriginDestinationList>
+                <OriginDestination OriginDestinationKey="BCNCDG">
+                    <DepartureCode>BCN</DepartureCode>
+                    <ArrivalCode>CDG</ArrivalCode>
+                    <FlightReferences>FL_BCNCDG_1</FlightReferences>
+                </OriginDestination>
+                <OriginDestination OriginDestinationKey="CDGFRA">
+                    <DepartureCode>CDG</DepartureCode>
+                    <ArrivalCode>FRA</ArrivalCode>
+                    <FlightReferences>FL_CDGFRA_2</FlightReferences>
+                </OriginDestination>
+            </OriginDestinationList>
+            <PriceClassList>
+                <PriceClass ObjectKey="PC1">
+                    <Name>M-ERM</Name>
+                    <Code>M</Code>
+                    <FareBasisCode>
+                        <Code>ERM</Code>
+                    </FareBasisCode>
+                </PriceClass>
+                <PriceClass ObjectKey="PC2">
+                    <Name>M-ESM</Name>
+                    <Code>M</Code>
+                    <FareBasisCode>
+                        <Code>ESM</Code>
+                    </FareBasisCode>
+                </PriceClass>
+                <PriceClass ObjectKey="PC3">
+                    <Name>M-EFM</Name>
+                    <Code>M</Code>
+                    <FareBasisCode>
+                        <Code>EFM</Code>
+                    </FareBasisCode>
+                </PriceClass>
+            </PriceClassList>
+            <ServiceList>
+                <Service ObjectKey="SV_1015_EFR">
+                    <ServiceID Owner="C9">1015</ServiceID>
+                    <Name>Premium Seating</Name>
+                    <Encoding>
+                        <Code>SET</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Take advantage of the Premium Economy cabin to rest,read or work</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>45.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1010_EFR">
+                    <ServiceID Owner="C9">1010</ServiceID>
+                    <Name>2nd Bag</Name>
+                    <Encoding>
+                        <Code>BAG</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Second bag</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>35.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1014_ERR">
+                    <ServiceID Owner="C9">1014</ServiceID>
+                    <Name>Advanced seat selection</Name>
+                    <Encoding>
+                        <Code>SET</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>A convenient option that lets you reserve your preferred seat</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>16.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1012_ESR">
+                    <ServiceID Owner="C9">1012</ServiceID>
+                    <Name>Vegetarian Meal</Name>
+                    <Encoding>
+                        <Code>MEL</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Vegetarian meal flavoured with spices from Indian sub-continent</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>10.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1023_EFR">
+                    <ServiceID Owner="C9">1023</ServiceID>
+                    <Name>1st Bag</Name>
+                    <Encoding>
+                        <Code>BAG</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Do not get caught out at the airport</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>35.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1 SEG_CDGFRA_2</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1010_ERR">
+                    <ServiceID Owner="C9">1010</ServiceID>
+                    <Name>2nd Bag</Name>
+                    <Encoding>
+                        <Code>BAG</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Second bag</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>35.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1023_ERR">
+                    <ServiceID Owner="C9">1023</ServiceID>
+                    <Name>1st Bag</Name>
+                    <Encoding>
+                        <Code>BAG</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Do not get caught out at the airport</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>35.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1 SEG_CDGFRA_2</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1014_EFR">
+                    <ServiceID Owner="C9">1014</ServiceID>
+                    <Name>Advanced seat selection</Name>
+                    <Encoding>
+                        <Code>SET</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>A convenient option that lets you reserve your preferred seat</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>7.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1024_ERR">
+                    <ServiceID Owner="C9">1024</ServiceID>
+                    <Name>3rd Bag</Name>
+                    <Encoding>
+                        <Code>BAG</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Do not get caught out at the airport</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>115.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1 SEG_CDGFRA_2</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1011_EFR">
+                    <ServiceID Owner="C9">1011</ServiceID>
+                    <Name>Lounge Pass</Name>
+                    <Encoding>
+                        <Code>GRN</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Escape the crowds and find a quiet space to work or relax</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>35.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1015_ERR">
+                    <ServiceID Owner="C9">1015</ServiceID>
+                    <Name>Premium Seating</Name>
+                    <Encoding>
+                        <Code>SET</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Take advantage of the Premium Economy cabin to rest,read or work</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>75.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1010_ESR">
+                    <ServiceID Owner="C9">1010</ServiceID>
+                    <Name>2nd Bag</Name>
+                    <Encoding>
+                        <Code>BAG</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Second bag</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>35.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1013_ESR">
+                    <ServiceID Owner="C9">1013</ServiceID>
+                    <Name>Muslim Meal</Name>
+                    <Encoding>
+                        <Code>MEL</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>*Halal* meal prepared according to Islamic pinciples</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>10.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1024_EFR">
+                    <ServiceID Owner="C9">1024</ServiceID>
+                    <Name>3rd Bag</Name>
+                    <Encoding>
+                        <Code>BAG</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Do not get caught out at the airport</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>115.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1 SEG_CDGFRA_2</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1011_ERR">
+                    <ServiceID Owner="C9">1011</ServiceID>
+                    <Name>Lounge Pass</Name>
+                    <Encoding>
+                        <Code>GRN</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Escape the crowds and find a quiet space to work or relax</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>55.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1009_ESR">
+                    <ServiceID Owner="C9">1009</ServiceID>
+                    <Name>Inflight Wi-Fi</Name>
+                    <Encoding>
+                        <Code>CON</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Stay connected using any Wi-Fi enabled device</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>12.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1014_ESR">
+                    <ServiceID Owner="C9">1014</ServiceID>
+                    <Name>Advanced seat selection</Name>
+                    <Encoding>
+                        <Code>SET</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>A convenient option that lets you reserve your preferred seat</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>12.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1012_ERR">
+                    <ServiceID Owner="C9">1012</ServiceID>
+                    <Name>Vegetarian Meal</Name>
+                    <Encoding>
+                        <Code>MEL</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Vegetarian meal flavoured with spices from Indian sub-continent</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>15.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1009_EFR">
+                    <ServiceID Owner="C9">1009</ServiceID>
+                    <Name>Inflight Wi-Fi</Name>
+                    <Encoding>
+                        <Code>CON</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Stay connected using any Wi-Fi enabled device</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>7.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1012_EFR">
+                    <ServiceID Owner="C9">1012</ServiceID>
+                    <Name>Vegetarian Meal</Name>
+                    <Encoding>
+                        <Code>MEL</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Vegetarian meal flavoured with spices from Indian sub-continent</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>10.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1023_ESR">
+                    <ServiceID Owner="C9">1023</ServiceID>
+                    <Name>1st Bag</Name>
+                    <Encoding>
+                        <Code>BAG</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Do not get caught out at the airport</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>35.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1 SEG_CDGFRA_2</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1015_ESR">
+                    <ServiceID Owner="C9">1015</ServiceID>
+                    <Name>Premium Seating</Name>
+                    <Encoding>
+                        <Code>SET</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Take advantage of the Premium Economy cabin to rest,read or work</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>55.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1024_ESR">
+                    <ServiceID Owner="C9">1024</ServiceID>
+                    <Name>3rd Bag</Name>
+                    <Encoding>
+                        <Code>BAG</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Do not get caught out at the airport</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>115.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1 SEG_CDGFRA_2</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1013_ERR">
+                    <ServiceID Owner="C9">1013</ServiceID>
+                    <Name>Muslim Meal</Name>
+                    <Encoding>
+                        <Code>MEL</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>*Halal* meal prepared according to Islamic pinciples</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>15.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1011_ESR">
+                    <ServiceID Owner="C9">1011</ServiceID>
+                    <Name>Lounge Pass</Name>
+                    <Encoding>
+                        <Code>GRN</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Escape the crowds and find a quiet space to work or relax</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>35.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1009_ERR">
+                    <ServiceID Owner="C9">1009</ServiceID>
+                    <Name>Inflight Wi-Fi</Name>
+                    <Encoding>
+                        <Code>CON</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>Stay connected using any Wi-Fi enabled device</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>19.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+                <Service ObjectKey="SV_1013_EFR">
+                    <ServiceID Owner="C9">1013</ServiceID>
+                    <Name>Muslim Meal</Name>
+                    <Encoding>
+                        <Code>MEL</Code>
+                    </Encoding>
+                    <Descriptions>
+                        <Description>
+                            <Text>*Halal* meal prepared according to Islamic pinciples</Text>
+                        </Description>
+                    </Descriptions>
+                    <Price>
+                        <Total>10.00</Total>
+                        <PassengerReferences>SH1</PassengerReferences>
+                    </Price>
+                    <Associations>
+                        <Traveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </Traveler>
+                        <Flight>
+                            <SegmentReferences>SEG_BCNCDG_1</SegmentReferences>
+                        </Flight>
+                    </Associations>
+                </Service>
+            </ServiceList>
+        </DataLists>
+        <Metadata>
+            <Other>
+                <OtherMetadata>
+                    <CurrencyMetadatas>
+                        <CurrencyMetadata MetadataKey="USD">
+                            <Decimals>2</Decimals>
+                        </CurrencyMetadata>
+                    </CurrencyMetadatas>
+                </OtherMetadata>
+            </Other>
+        </Metadata>
+    </Response>
+</ItinReshopRS>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ItinReshopRQ EchoToken="94db797bcf95516601394ba445c3288ef95cc053" TimeStamp="2017-08-22T12:38:33.930Z"
+              TransactionIdentifier="TRN12345" Version="IATA2016.2" xmlns="http://www.iata.org/IATA/EDIST"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.iata.org/IATA/EDIST ../ItinReshopRQ.xsd">
+    <Document>
+        <Name>IATA NDC GATEWAY</Name>
+        <ReferenceVersion>1.0</ReferenceVersion>
+    </Document>
+    <Party>
+        <Sender>
+            <TravelAgencySender>
+                <Name>Athena Air</Name>
+                <Type>Airline Agent</Type>
+                <Contacts>
+                    <Contact>
+                        <EmailContact>
+                            <Address>test@example.org</Address>
+                        </EmailContact>
+                    </Contact>
+                </Contacts>
+                <PseudoCity>A4A</PseudoCity>
+                <IATA_Number>98417900</IATA_Number>
+                <AgencyID>9A</AgencyID>
+                <AgentUser>
+                    <Name>IATA Developer</Name>
+                    <AgentUserID>developer.test</AgentUserID>
+                </AgentUser>
+            </TravelAgencySender>
+        </Sender>
+    </Party>
+    <Query>
+        <Reshop>
+            <Actions>
+                <ActionType Context="Passenger">Create</ActionType>
+                <OrderID Owner="C9">D12WD5</OrderID>
+                <Passengers>
+                    <Passenger ObjectKey="PAX2">
+                        <PTC Quantity="1">ADT</PTC>
+                        <Name>
+                            <Surname>Smith</Surname>
+                            <Given>Johnny</Given>
+                        </Name>
+                        <Contacts>
+                            <Contact>
+                                <EmailContact>
+                                    <Address>j.smith@gmail.com</Address>
+                                </EmailContact>
+                            </Contact>
+                        </Contacts>
+                        <Gender>Male</Gender>
+                    </Passenger>
+                </Passengers>
+                <Preference>
+                    <AirlinePreferences>
+                        <Airline>
+                            <AirlineID>C9</AirlineID>
+                        </Airline>
+                    </AirlinePreferences>
+                    <CabinPreferences>
+                        <CabinType>
+                            <Code>M</Code>
+                            <Definition>Economy/coach discounted</Definition>
+                        </CabinType>
+                    </CabinPreferences>
+                </Preference>
+            </Actions>
+        </Reshop>
+    </Query>
+</ItinReshopRQ>

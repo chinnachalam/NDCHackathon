@@ -1,0 +1,21 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.iata.org/IATA/EDIST" targetNamespace="http://www.iata.org/IATA/EDIST" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.000" id="IATA2016.2">
+  <xsd:include schemaLocation="AirShoppingRQ.xsd"/>
+  <xsd:include schemaLocation="AirShoppingRS.xsd"/>
+  <xsd:include schemaLocation="FlightPriceRQ.xsd"/>
+  <xsd:include schemaLocation="FlightPriceRS.xsd"/>
+  <xsd:include schemaLocation="ItinReshopRQ.xsd"/>
+  <xsd:include schemaLocation="ItinReshopRS.xsd"/>
+  <xsd:include schemaLocation="OrderCancelRQ.xsd"/>
+  <xsd:include schemaLocation="OrderCancelRS.xsd"/>
+  <xsd:include schemaLocation="OrderChangeRQ.xsd"/>
+  <xsd:include schemaLocation="OrderListRQ.xsd"/>
+  <xsd:include schemaLocation="OrderListRS.xsd"/>
+  <xsd:include schemaLocation="OrderCreateRQ.xsd"/>
+  <xsd:include schemaLocation="OrderViewRS.xsd"/>
+  <xsd:include schemaLocation="OrderRetrieveRQ.xsd"/>
+  <xsd:include schemaLocation="OrderViewRS.xsd"/>
+  <xsd:include schemaLocation="SeatAvailabilityRQ.xsd"/>
+  <xsd:include schemaLocation="SeatAvailabilityRS.xsd"/>
+  <xsd:include schemaLocation="ServiceListRQ.xsd"/>
+  <xsd:include schemaLocation="ServiceListRS.xsd"/>
+</xsd:schema>

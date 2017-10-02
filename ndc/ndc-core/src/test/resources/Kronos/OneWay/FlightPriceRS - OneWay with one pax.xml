@@ -1,0 +1,933 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<FlightPriceRS TimeStamp="2017-08-22T15:58:13.443+03:00" Version="IATA2016.2" xmlns="http://www.iata.org/IATA/EDIST">
+    <Document>
+        <Name>KRONOS NDC GATEWAY</Name>
+        <ReferenceVersion>20170822_152801</ReferenceVersion>
+    </Document>
+    <Success/>
+    <ShoppingResponseID>
+        <ResponseID>213-aaa2e47f15af43189cbb415f32604ee4</ResponseID>
+    </ShoppingResponseID>
+    <PricedFlightOffers>
+        <PricedFlightOffer>
+            <OfferID Owner="C9">1</OfferID>
+            <OfferPrice OfferItemID="1_1">
+                <RequestedDate>
+                    <PriceDetail>
+                        <TotalAmount>
+                            <SimpleCurrencyPrice Code="USD">508.66</SimpleCurrencyPrice>
+                        </TotalAmount>
+                        <BaseAmount Code="USD">231.00</BaseAmount>
+                        <Taxes>
+                            <Total Code="USD">277.66</Total>
+                        </Taxes>
+                    </PriceDetail>
+                    <Associations>
+                        <AssociatedTraveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </AssociatedTraveler>
+                        <AssociatedService>
+                            <ServiceReferences>SV_1015_EFO SV_1010_EFO SV_1011_EFO SV_1014_EFO SV_1012_EFO SV_1023_EFO
+                                SV_1024_EFO SV_1009_EFO SV_1013_EFO
+                            </ServiceReferences>
+                        </AssociatedService>
+                    </Associations>
+                </RequestedDate>
+            </OfferPrice>
+            <TimeLimits>
+                <OfferExpiration Timestamp="2017-08-22T13:56:33.468Z"/>
+            </TimeLimits>
+            <Associations>
+                <ApplicableFlight>
+                    <FlightSegmentReference ref="SEG_CDGBCN_1">
+                        <Cabin>
+                            <CabinDesignator>M</CabinDesignator>
+                        </Cabin>
+                    </FlightSegmentReference>
+                    <FlightSegmentReference ref="SEG_BCNFRA_2">
+                        <Cabin>
+                            <CabinDesignator>M</CabinDesignator>
+                        </Cabin>
+                    </FlightSegmentReference>
+                    <OriginDestinationReferences>CDGFRA</OriginDestinationReferences>
+                    <FlightReferences>FL_CDGFRA_1</FlightReferences>
+                </ApplicableFlight>
+                <PriceClass>
+                    <PriceClassReference>PC3</PriceClassReference>
+                </PriceClass>
+            </Associations>
+        </PricedFlightOffer>
+        <PricedFlightOffer>
+            <OfferID Owner="C9">2</OfferID>
+            <OfferPrice OfferItemID="2_1">
+                <RequestedDate>
+                    <PriceDetail>
+                        <TotalAmount>
+                            <SimpleCurrencyPrice Code="USD">383.66</SimpleCurrencyPrice>
+                        </TotalAmount>
+                        <BaseAmount Code="USD">106.00</BaseAmount>
+                        <Taxes>
+                            <Total Code="USD">277.66</Total>
+                        </Taxes>
+                    </PriceDetail>
+                    <Associations>
+                        <AssociatedTraveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </AssociatedTraveler>
+                        <AssociatedService>
+                            <ServiceReferences>SV_1014_ERO SV_1009_ERO SV_1015_ERO SV_1013_ERO SV_1011_ERO SV_1010_ERO
+                                SV_1012_ERO SV_1024_ERO SV_1023_ERO
+                            </ServiceReferences>
+                        </AssociatedService>
+                    </Associations>
+                </RequestedDate>
+            </OfferPrice>
+            <TimeLimits>
+                <OfferExpiration Timestamp="2017-08-22T13:56:33.468Z"/>
+            </TimeLimits>
+            <Associations>
+                <ApplicableFlight>
+                    <FlightSegmentReference ref="SEG_CDGBCN_1">
+                        <Cabin>
+                            <CabinDesignator>M</CabinDesignator>
+                        </Cabin>
+                    </FlightSegmentReference>
+                    <FlightSegmentReference ref="SEG_BCNFRA_2">
+                        <Cabin>
+                            <CabinDesignator>M</CabinDesignator>
+                        </Cabin>
+                    </FlightSegmentReference>
+                    <OriginDestinationReferences>CDGFRA</OriginDestinationReferences>
+                    <FlightReferences>FL_CDGFRA_1</FlightReferences>
+                </ApplicableFlight>
+                <PriceClass>
+                    <PriceClassReference>PC1</PriceClassReference>
+                </PriceClass>
+            </Associations>
+            <Penalty>
+                <Details>
+                    <Detail>
+                        <Type>Changes/Cancellation/NoShow</Type>
+                        <Amounts>
+                            <Amount>
+                                <CurrencyAmountValue Code="USD">250.00</CurrencyAmountValue>
+                                <ApplicableFeeRemarks>
+                                    <Remark>The penalty for changes or cancellations after the order is placed is @
+                                        Euros. Non refundable for no-show.
+                                    </Remark>
+                                </ApplicableFeeRemarks>
+                            </Amount>
+                        </Amounts>
+                    </Detail>
+                </Details>
+            </Penalty>
+        </PricedFlightOffer>
+        <PricedFlightOffer>
+            <OfferID Owner="C9">3</OfferID>
+            <OfferPrice OfferItemID="3_1">
+                <RequestedDate>
+                    <PriceDetail>
+                        <TotalAmount>
+                            <SimpleCurrencyPrice Code="USD">633.66</SimpleCurrencyPrice>
+                        </TotalAmount>
+                        <BaseAmount Code="USD">356.00</BaseAmount>
+                        <Taxes>
+                            <Total Code="USD">277.66</Total>
+                        </Taxes>
+                    </PriceDetail>
+                    <Associations>
+                        <AssociatedTraveler>
+                            <TravelerReferences>SH1</TravelerReferences>
+                        </AssociatedTraveler>
+                        <AssociatedService>
+                            <ServiceReferences>SV_1014_ESO SV_1013_ESO SV_1015_ESO SV_1009_ESO SV_1011_ESO SV_1010_ESO
+                                SV_1012_ESO SV_1024_ESO SV_1023_ESO
+                            </ServiceReferences>
+                        </AssociatedService>
+                    </Associations>
+                </RequestedDate>
+            </OfferPrice>
+            <TimeLimits>
+                <OfferExpiration Timestamp="2017-08-22T13:56:33.468Z"/>
+            </TimeLimits>
+            <Associations>
+                <ApplicableFlight>
+                    <FlightSegmentReference ref="SEG_CDGBCN_1">
+                        <Cabin>
+                            <CabinDesignator>M</CabinDesignator>
+                        </Cabin>
+                    </FlightSegmentReference>
+                    <FlightSegmentReference ref="SEG_BCNFRA_2">
+                        <Cabin>
+                            <CabinDesignator>M</CabinDesignator>
+                        </Cabin>
+                    </FlightSegmentReference>
+                    <OriginDestinationReferences>CDGFRA</OriginDestinationReferences>
+                    <FlightReferences>FL_CDGFRA_1</FlightReferences>
+                </ApplicableFlight>
+                <PriceClass>
+                    <PriceClassReference>PC2</PriceClassReference>
+                </PriceClass>
+            </Associations>
+        </PricedFlightOffer>
+    </PricedFlightOffers>
+    <DataLists>
+        <AnonymousTravelerList>
+            <AnonymousTraveler ObjectKey="SH1">
+                <PTC>ADT</PTC>
+            </AnonymousTraveler>
+        </AnonymousTravelerList>
+        <FlightSegmentList>
+            <FlightSegment SegmentKey="SEG_CDGBCN_1">
+                <Departure>
+                    <AirportCode>CDG</AirportCode>
+                    <Date>2017-08-29</Date>
+                    <Time>07:50</Time>
+                    <AirportName>Charles de Gaulle Airport</AirportName>
+                </Departure>
+                <Arrival>
+                    <AirportCode>BCN</AirportCode>
+                    <Date>2017-08-29</Date>
+                    <Time>09:27</Time>
+                    <AirportName>Barcelona–El Prat Airport</AirportName>
+                </Arrival>
+                <MarketingCarrier>
+                    <AirlineID>C9</AirlineID>
+                    <FlightNumber>050</FlightNumber>
+                </MarketingCarrier>
+                <OperatingCarrier>
+                    <AirlineID>C9</AirlineID>
+                    <FlightNumber>050</FlightNumber>
+                </OperatingCarrier>
+                <Equipment>
+                    <AircraftCode>320</AircraftCode>
+                    <Name>A320</Name>
+                </Equipment>
+                <FlightDetail>
+                    <FlightDuration>
+                        <Value>P0DT1H37M0S</Value>
+                    </FlightDuration>
+                </FlightDetail>
+            </FlightSegment>
+            <FlightSegment SegmentKey="SEG_BCNFRA_2">
+                <Departure>
+                    <AirportCode>BCN</AirportCode>
+                    <Date>2017-08-30</Date>
+                    <Time>11:40</Time>
+                    <AirportName>Barcelona–El Prat Airport</AirportName>
+                </Departure>
+                <Arrival>
+                    <AirportCode>FRA</AirportCode>
+                    <Date>2017-08-30</Date>
+                    <Time>13:35</Time>
+                    <AirportName>Frankfurt Airport</AirportName>
+                </Arrival>
+                <MarketingCarrier>
+                    <AirlineID>C9</AirlineID>
+                    <FlightNumber>063</FlightNumber>
+                </MarketingCarrier>
+                <OperatingCarrier>
+                    <AirlineID>C9</AirlineID>
+                    <FlightNumber>063</FlightNumber>
+                </OperatingCarrier>
+                <Equipment>
+                    <AircraftCode>319</AircraftCode>
+                    <Name>A319</Name>
+                </Equipment>
+                <FlightDetail>
+                    <FlightDuration>
+                        <Value>P0DT1H55M0S</Value>
+                    </FlightDuration>
+                </FlightDetail>
+            </FlightSegment>
+        </FlightSegmentList>
+        <FlightList>
+            <Flight FlightKey="FL_CDGFRA_1">
+                <Journey>
+                    <Time>P1DT5H45M0S</Time>
+                </Journey>
+                <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+            </Flight>
+        </FlightList>
+        <OriginDestinationList>
+            <OriginDestination OriginDestinationKey="CDGFRA">
+                <DepartureCode>CDG</DepartureCode>
+                <ArrivalCode>FRA</ArrivalCode>
+                <FlightReferences>FL_CDGFRA_1</FlightReferences>
+            </OriginDestination>
+        </OriginDestinationList>
+        <PriceClassList>
+            <PriceClass ObjectKey="PC1">
+                <Name>M-ERO</Name>
+                <Code>M</Code>
+                <FareBasisCode>
+                    <Code>ERO</Code>
+                </FareBasisCode>
+            </PriceClass>
+            <PriceClass ObjectKey="PC2">
+                <Name>M-ESO</Name>
+                <Code>M</Code>
+                <FareBasisCode>
+                    <Code>ESO</Code>
+                </FareBasisCode>
+            </PriceClass>
+            <PriceClass ObjectKey="PC3">
+                <Name>M-EFO</Name>
+                <Code>M</Code>
+                <FareBasisCode>
+                    <Code>EFO</Code>
+                </FareBasisCode>
+            </PriceClass>
+        </PriceClassList>
+        <ServiceList>
+            <Service ObjectKey="SV_1010_EFO">
+                <ServiceID Owner="C9">1010</ServiceID>
+                <Name>2nd Bag</Name>
+                <Encoding>
+                    <Code>BAG</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Second bag</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>35.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1023_EFO">
+                <ServiceID Owner="C9">1023</ServiceID>
+                <Name>1st Bag</Name>
+                <Encoding>
+                    <Code>BAG</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Do not get caught out at the airport</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>35.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1014_ERO">
+                <ServiceID Owner="C9">1014</ServiceID>
+                <Name>Advanced seat selection</Name>
+                <Encoding>
+                    <Code>SET</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>A convenient option that lets you reserve your preferred seat</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>16.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1011_ESO">
+                <ServiceID Owner="C9">1011</ServiceID>
+                <Name>Lounge Pass</Name>
+                <Encoding>
+                    <Code>GRN</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Escape the crowds and find a quiet space to work or relax</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>35.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1024_ESO">
+                <ServiceID Owner="C9">1024</ServiceID>
+                <Name>3rd Bag</Name>
+                <Encoding>
+                    <Code>BAG</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Do not get caught out at the airport</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>115.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1014_EFO">
+                <ServiceID Owner="C9">1014</ServiceID>
+                <Name>Advanced seat selection</Name>
+                <Encoding>
+                    <Code>SET</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>A convenient option that lets you reserve your preferred seat</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>7.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1011_EFO">
+                <ServiceID Owner="C9">1011</ServiceID>
+                <Name>Lounge Pass</Name>
+                <Encoding>
+                    <Code>GRN</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Escape the crowds and find a quiet space to work or relax</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>35.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1015_ERO">
+                <ServiceID Owner="C9">1015</ServiceID>
+                <Name>Premium Seating</Name>
+                <Encoding>
+                    <Code>SET</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Take advantage of the Premium Economy cabin to rest,read or work</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>75.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1009_ESO">
+                <ServiceID Owner="C9">1009</ServiceID>
+                <Name>Inflight Wi-Fi</Name>
+                <Encoding>
+                    <Code>CON</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Stay connected using any Wi-Fi enabled device</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>12.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1010_ESO">
+                <ServiceID Owner="C9">1010</ServiceID>
+                <Name>2nd Bag</Name>
+                <Encoding>
+                    <Code>BAG</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Second bag</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>35.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1024_ERO">
+                <ServiceID Owner="C9">1024</ServiceID>
+                <Name>3rd Bag</Name>
+                <Encoding>
+                    <Code>BAG</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Do not get caught out at the airport</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>115.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1023_ESO">
+                <ServiceID Owner="C9">1023</ServiceID>
+                <Name>1st Bag</Name>
+                <Encoding>
+                    <Code>BAG</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Do not get caught out at the airport</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>35.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1012_ERO">
+                <ServiceID Owner="C9">1012</ServiceID>
+                <Name>Vegetarian Meal</Name>
+                <Encoding>
+                    <Code>MEL</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Vegetarian meal flavoured with spices from Indian sub-continent</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>15.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1024_EFO">
+                <ServiceID Owner="C9">1024</ServiceID>
+                <Name>3rd Bag</Name>
+                <Encoding>
+                    <Code>BAG</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Do not get caught out at the airport</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>115.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1015_EFO">
+                <ServiceID Owner="C9">1015</ServiceID>
+                <Name>Premium Seating</Name>
+                <Encoding>
+                    <Code>SET</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Take advantage of the Premium Economy cabin to rest,read or work</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>45.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1009_EFO">
+                <ServiceID Owner="C9">1009</ServiceID>
+                <Name>Inflight Wi-Fi</Name>
+                <Encoding>
+                    <Code>CON</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Stay connected using any Wi-Fi enabled device</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>7.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1014_ESO">
+                <ServiceID Owner="C9">1014</ServiceID>
+                <Name>Advanced seat selection</Name>
+                <Encoding>
+                    <Code>SET</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>A convenient option that lets you reserve your preferred seat</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>12.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1011_ERO">
+                <ServiceID Owner="C9">1011</ServiceID>
+                <Name>Lounge Pass</Name>
+                <Encoding>
+                    <Code>GRN</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Escape the crowds and find a quiet space to work or relax</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>55.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1013_ESO">
+                <ServiceID Owner="C9">1013</ServiceID>
+                <Name>Muslim Meal</Name>
+                <Encoding>
+                    <Code>MEL</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>*Halal* meal prepared according to Islamic pinciples</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>10.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1012_EFO">
+                <ServiceID Owner="C9">1012</ServiceID>
+                <Name>Vegetarian Meal</Name>
+                <Encoding>
+                    <Code>MEL</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Vegetarian meal flavoured with spices from Indian sub-continent</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>10.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1015_ESO">
+                <ServiceID Owner="C9">1015</ServiceID>
+                <Name>Premium Seating</Name>
+                <Encoding>
+                    <Code>SET</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Take advantage of the Premium Economy cabin to rest,read or work</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>55.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1009_ERO">
+                <ServiceID Owner="C9">1009</ServiceID>
+                <Name>Inflight Wi-Fi</Name>
+                <Encoding>
+                    <Code>CON</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Stay connected using any Wi-Fi enabled device</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>19.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1010_ERO">
+                <ServiceID Owner="C9">1010</ServiceID>
+                <Name>2nd Bag</Name>
+                <Encoding>
+                    <Code>BAG</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Second bag</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>35.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1013_ERO">
+                <ServiceID Owner="C9">1013</ServiceID>
+                <Name>Muslim Meal</Name>
+                <Encoding>
+                    <Code>MEL</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>*Halal* meal prepared according to Islamic pinciples</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>15.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1023_ERO">
+                <ServiceID Owner="C9">1023</ServiceID>
+                <Name>1st Bag</Name>
+                <Encoding>
+                    <Code>BAG</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Do not get caught out at the airport</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>35.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1012_ESO">
+                <ServiceID Owner="C9">1012</ServiceID>
+                <Name>Vegetarian Meal</Name>
+                <Encoding>
+                    <Code>MEL</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>Vegetarian meal flavoured with spices from Indian sub-continent</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>10.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+            <Service ObjectKey="SV_1013_EFO">
+                <ServiceID Owner="C9">1013</ServiceID>
+                <Name>Muslim Meal</Name>
+                <Encoding>
+                    <Code>MEL</Code>
+                </Encoding>
+                <Descriptions>
+                    <Description>
+                        <Text>*Halal* meal prepared according to Islamic pinciples</Text>
+                    </Description>
+                </Descriptions>
+                <Price>
+                    <Total>10.00</Total>
+                    <PassengerReferences>SH1</PassengerReferences>
+                </Price>
+                <Associations>
+                    <Traveler>
+                        <TravelerReferences>SH1</TravelerReferences>
+                    </Traveler>
+                    <Flight>
+                        <SegmentReferences>SEG_CDGBCN_1 SEG_BCNFRA_2</SegmentReferences>
+                    </Flight>
+                </Associations>
+            </Service>
+        </ServiceList>
+    </DataLists>
+</FlightPriceRS>

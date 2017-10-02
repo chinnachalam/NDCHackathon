@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AirShoppingRQ xmlns="http://www.iata.org/IATA/EDIST" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               Version="IATA2016.2" xsi:schemaLocation="http://www.iata.org/IATA/EDIST AirShoppingRQ.xsd">
+    <Document>
+        <Name>KRONOS NDC GATEWAY</Name>
+        <ReferenceVersion>1.0</ReferenceVersion>
+    </Document>
+    <Party>
+        <Sender>
+            <TravelAgencySender>
+                <Contacts>
+                    <Contact>
+                        <EmailContact>
+                            <Address>ndc@usdtravel.com</Address>
+                        </EmailContact>
+                    </Contact>
+                </Contacts>
+                <PseudoCity>A4A</PseudoCity>
+                <IATA_Number>98417900</IATA_Number>
+                <AgencyID Owner="C9">C9</AgencyID>
+                <AgentUser>
+                    <Name>ksmith</Name>
+                    <AgentUserID>ksmith212</AgentUserID>
+                    <UserRole>Admin</UserRole>
+                </AgentUser>
+            </TravelAgencySender>
+        </Sender>
+    </Party>
+    <Parameters>
+        <CurrCodes>
+            <CurrCode>EUR</CurrCode>
+        </CurrCodes>
+    </Parameters>
+    <Travelers>
+        <Traveler>
+            <AnonymousTraveler>
+                <PTC Quantity="1">ADT</PTC>
+            </AnonymousTraveler>
+        </Traveler>
+    </Travelers>
+    <CoreQuery>
+        <OriginDestinations>
+            <OriginDestination>
+                <Departure>
+                    <AirportCode>ARN</AirportCode>
+                    <Date>2017-08-30</Date>
+                </Departure>
+                <Arrival>
+                    <AirportCode>RIX</AirportCode>
+                </Arrival>
+                <MarketingCarrierAirline>
+                    <AirlineID>C9</AirlineID>
+                    <Name>Kronos Air</Name>
+                </MarketingCarrierAirline>
+            </OriginDestination>
+        </OriginDestinations>
+    </CoreQuery>
+    <Preference>
+        <AirlinePreferences>
+            <Airline>
+                <AirlineID>C9</AirlineID>
+            </Airline>
+        </AirlinePreferences>
+        <CabinPreferences>
+            <CabinType>
+                <Code>M</Code>
+            </CabinType>
+        </CabinPreferences>
+    </Preference>
+    <Metadata>
+        <Other>
+            <OtherMetadata>
+                <CurrencyMetadatas>
+                    <CurrencyMetadata MetadataKey="EUR">
+                        <Decimals>2</Decimals>
+                    </CurrencyMetadata>
+                </CurrencyMetadatas>
+            </OtherMetadata>
+        </Other>
+    </Metadata>
+</AirShoppingRQ>

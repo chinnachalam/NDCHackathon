@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OrderCancelRQ xmlns="http://www.iata.org/IATA/EDIST" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               Target="Test" PrimaryLangID="en" AltLangID="en" Version="IATA2016.2">
+    <Document>
+        <Name>KRONOS NDC GATEWAY</Name>
+        <ReferenceVersion>1.0</ReferenceVersion>
+    </Document>
+    <Party>
+        <Sender>
+            <TravelAgencySender>
+                <Name>JR TECHNOLOGIES</Name>
+                <IATA_Number>20200154</IATA_Number>
+                <AgencyID>00010080</AgencyID>
+            </TravelAgencySender>
+        </Sender>
+        <Recipient>
+            <ORA_Recipient>
+                <AirlineID>C9</AirlineID>
+            </ORA_Recipient>
+        </Recipient>
+    </Party>
+    <Query>
+        <OrderID Owner="C9">IDTOREMOVE</OrderID>
+    </Query>
+</OrderCancelRQ>

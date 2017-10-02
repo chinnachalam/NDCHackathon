@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OrderListRQ EchoToken="12346578" Version="IATA2016.2" xmlns="http://www.iata.org/IATA/EDIST">
+    <Document>
+        <ReferenceVersion>1.0</ReferenceVersion>
+    </Document>
+    <Party>
+        <Sender>
+            <TravelAgencySender>
+                <Name>JR TECHNOLOGIES</Name>
+                <IATA_Number>20200154</IATA_Number>
+                <AgencyID>00010080</AgencyID>
+            </TravelAgencySender>
+        </Sender>
+        <Recipient>
+            <ORA_Recipient>
+                <AirlineID>C9</AirlineID>
+            </ORA_Recipient>
+        </Recipient>
+    </Party>
+    <Query>
+        <Filters>
+            <!--<Agency>-->
+            <!--	<AgencyID>C9</AgencyID>-->
+            <!--	<Name>TestAgency</Name>-->
+            <!--	<IATA_Number>98417900</IATA_Number>-->
+            <!--</Agency>-->
+            <!--<Airline>-->
+            <!--	<AirlineID>C9</AirlineID>-->
+            <!--</Airline>-->
+            <!--<BookingReferences>-->
+            <!--	<BookingReference>-->
+            <!--		<ID>3706CE</ID>-->
+            <!--		<AirlineID>C9</AirlineID>-->
+            <!--	</BookingReference>-->
+            <!--</BookingReferences>-->
+            <CreateDateRange>
+                <Effective>2017-02-01</Effective>
+                <Expiration>2017-08-29</Expiration>
+            </CreateDateRange>
+            <!--<Flight>-->
+            <!--<Departure>-->
+            <!--	<AirportCode>CDG</AirportCode>-->
+            <!--	<Date>2017-01-01</Date>-->
+            <!--</Departure>-->
+            <!--<Arrival>-->
+            <!--	<AirportCode>LHR</AirportCode>-->
+            <!--	<Date>2016-12-27</Date>-->
+            <!--</Arrival>-->
+            <!--<FlightNumber>024</FlightNumber>-->
+            <!--</Flight>-->
+            <!--<Passengers>-->
+            <!--	<Name>-->
+            <!--		<Surname>Tsourdos</Surname>-->
+            <!--	</Name>-->
+            <!--	<EmailAddress>-->
+            <!--		<Address>tryvoid@random.com</Address>-->
+            <!--	</EmailAddress>-->
+            <!--	<ProfileID>191195976776238</ProfileID>-->
+            <!--</Passengers>-->
+            <!--<TravelDateRange>-->
+            <!--<Effective>2016-12-27</Effective>-->
+            <!--	<Expiration>2016-12-27</Expiration>-->
+            <!--</TravelDateRange>-->
+        </Filters>
+    </Query>
+</OrderListRQ>

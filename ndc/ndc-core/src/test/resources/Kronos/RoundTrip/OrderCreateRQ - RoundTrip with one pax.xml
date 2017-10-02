@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OrderCreateRQ EchoToken="132456" Version="IATA2016.2" xmlns="http://www.iata.org/IATA/EDIST">
+	<Document>
+		<ReferenceVersion>1.0</ReferenceVersion>
+	</Document>
+	<Party>
+		<Sender>
+			<TravelAgencySender>
+				<Name>JR TECHNOLOGIES</Name>
+				<IATA_Number>20200154</IATA_Number>
+				<AgencyID>00010080</AgencyID>
+			</TravelAgencySender>
+		</Sender>
+		<Recipient>
+			<ORA_Recipient>
+				<AirlineID>C9</AirlineID>
+			</ORA_Recipient>
+		</Recipient>
+	</Party>
+	<Query>
+		<Passengers>
+			<Passenger ObjectKey="SH1">
+				<PTC Quantity="1">ADT</PTC>
+				<Name>
+					<Surname>Sutar</Surname>
+					<Given>Pramod</Given>
+					<SurnameSuffix>Sr</SurnameSuffix>
+					<Middle>R</Middle>
+				</Name>
+				<Contacts>
+					<Contact>
+						<AddressContact>
+							<Street>Parsik Road</Street>
+							<CityName>BOM</CityName>
+							<PostalCode>400605</PostalCode>
+							<County>IN</County>
+						</AddressContact>
+						<EmailContact>
+							<Address>Pramod@gmail.com</Address>
+						</EmailContact>
+						<OtherContactMethod>
+							<Name>Mobile</Name>
+							<Value>1234567890</Value>
+						</OtherContactMethod>
+						<PhoneContact>
+							<Number CountryCode="91">9664597377</Number>
+						</PhoneContact>
+					</Contact>
+				</Contacts>
+				<Gender>Male</Gender>
+			</Passenger>
+		</Passengers>
+		<OrderItems>
+			<ShoppingResponse>
+				<Owner>C9</Owner>
+				<ResponseID>201-ee0622bf4b694821a3b20e52bcd97949</ResponseID>
+				<Offers>
+					<Offer>
+						<OfferID Owner="C9">1</OfferID>
+						<OfferItems>
+							<OfferItem>
+								<OfferItemID ObjectKey="ID1" Owner="C9">1_1</OfferItemID>
+								<Passengers>
+									<PassengerReference>SH1</PassengerReference>
+								</Passengers>
+							</OfferItem>
+						</OfferItems>
+						<TotalPrice>
+							<SimpleCurrencyPrice Code="EUR">364.57</SimpleCurrencyPrice>
+						</TotalPrice>
+					</Offer>
+					<Offer>
+						<OfferID Owner="C9">108</OfferID>
+						<OfferItems>
+							<OfferItem>
+								<OfferItemID ObjectKey="ID108_1" Owner="C9">108_1</OfferItemID>
+								<Passengers>
+									<PassengerReference>SH1</PassengerReference>
+								</Passengers>
+							</OfferItem>
+						</OfferItems>
+						<TotalPrice>
+							<SimpleCurrencyPrice Code="EUR">551.57</SimpleCurrencyPrice>
+						</TotalPrice>
+					</Offer>
+				</Offers>
+			</ShoppingResponse>
+		</OrderItems>
+		<Payments>
+			<Payment>
+				<Method>
+					<PaymentCard>
+						<CardType>CREDIT</CardType>
+						<CardCode>VI</CardCode>
+						<CardNumber>1111222233334444</CardNumber>
+						<SeriesCode>584</SeriesCode>
+						<CardHolderName>WERNHER VON BRAUN</CardHolderName>
+						<EffectiveExpireDate>
+							<Effective>0322</Effective>
+							<Expiration>1022</Expiration>
+						</EffectiveExpireDate>
+					</PaymentCard>
+				</Method>
+				<Amount Taxable="true" Code="EUR">916.14</Amount>
+				<Payer>
+					<Name>
+						<Surname>Patel</Surname>
+						<Given>Ramesh</Given>
+					</Name>
+					<Contacts>
+						<Contact>
+							<AddressContact>
+								<Street>22 Main Street</Street>
+								<CityName>FRA</CityName>
+								<PostalCode>14201</PostalCode>
+								<CountryCode>DE</CountryCode>
+							</AddressContact>
+							<EmailContact>
+								<Address>ramesh@kronos.com</Address>
+							</EmailContact>
+						</Contact>
+					</Contacts>
+				</Payer>
+			</Payment>
+		</Payments>
+	</Query>
+</OrderCreateRQ>

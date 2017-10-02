@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OrderViewRS Version="IATA2016.2"  xmlns="http://www.iata.org/IATA/EDIST" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" TransactionIdentifier="e9c45961418e42d4a704b96feb906363">
+  <Document>
+    <Name>KRONOS NDC GATEWAY</Name>
+    <ReferenceVersion>1.0</ReferenceVersion>
+  </Document>
+  <Success/>
+  <Response>
+    <OrderViewProcessing/>
+    <Passengers>
+      <Passenger ObjectKey="SH1">
+        <PTC Quantity="1">ADT</PTC>
+        <Name>
+          <Surname>Sutar</Surname>
+          <Given>Pramod</Given>
+          <Middle>R</Middle>
+        </Name>
+        <ProfileID>191196061518881</ProfileID>
+        <Contacts>
+          <Contact>
+            <AddressContact>
+              <Street>Parsik Road</Street>
+              <PO_Box>0</PO_Box>
+              <CityName>BOM</CityName>
+              <PostalCode>400605</PostalCode>
+              <County>IN</County>
+            </AddressContact>
+          </Contact>
+          <Contact>
+            <PhoneContact>
+              <Number>9664597377</Number>
+            </PhoneContact>
+          </Contact>
+          <Contact>
+            <EmailContact>
+              <Address>Pramod@gmail.com</Address>
+            </EmailContact>
+          </Contact>
+        </Contacts>
+        <Gender>Male</Gender>
+      </Passenger>
+    </Passengers>
+    <Order>
+      <OrderID Owner="C9">A12345RB8</OrderID>
+      <BookingReferences>
+        <BookingReference>
+          <ID>370730</ID>
+          <AirlineID>C9</AirlineID>
+        </BookingReference>
+      </BookingReferences>
+      <TotalOrderPrice>
+        <DetailCurrencyPrice>
+          <Total Code="EUR">119.00</Total>
+          <Taxes>
+            <Total>307.16</Total>
+          </Taxes>
+        </DetailCurrencyPrice>
+      </TotalOrderPrice>
+      <OrderItems>
+        <OrderItem>
+          <OrderItemID Owner="C9">112_2</OrderItemID>
+          <FlightItem>
+            <Price>
+              <BaseAmount Code="EUR">59.50</BaseAmount>
+              <Taxes>
+                <Total Code="EUR">153.58</Total>
+              </Taxes>
+            </Price>
+            <OriginDestination refs="OD1">
+              <Flight refs="SEG_LHRBCN_1">
+                <Departure>
+                  <AirportCode>LHR</AirportCode>
+                  <Date>2017-08-22</Date>
+                  <Time>08:00</Time>
+                </Departure>
+                <Arrival>
+                  <AirportCode>BCN</AirportCode>
+                  <Date>2017-08-22</Date>
+                  <Time>10:59</Time>
+                </Arrival>
+                <MarketingCarrier>
+                  <AirlineID>C9</AirlineID>
+                  <FlightNumber>070</FlightNumber>
+                </MarketingCarrier>
+                <OperatingCarrier></OperatingCarrier>
+              </Flight>
+            </OriginDestination>
+            <OriginDestination refs="OD2">
+              <Flight refs="SEG_BCNLHR_2">
+                <Departure>
+                  <AirportCode>BCN</AirportCode>
+                  <Date>2017-08-26</Date>
+                  <Time>12:00</Time>
+                </Departure>
+                <Arrival>
+                  <AirportCode>LHR</AirportCode>
+                  <Date>2017-08-26</Date>
+                  <Time>12:59</Time>
+                </Arrival>
+                <MarketingCarrier>
+                  <AirlineID>C9</AirlineID>
+                  <FlightNumber>071</FlightNumber>
+                </MarketingCarrier>
+                <OperatingCarrier></OperatingCarrier>
+              </Flight>
+            </OriginDestination>
+          </FlightItem>
+          <Associations>
+            <Passengers>
+              <PassengerReferences>SH1</PassengerReferences>
+            </Passengers>
+          </Associations>
+        </OrderItem>
+        <OrderItem>
+          <OrderItemID Owner="C9">1_2</OrderItemID>
+          <FlightItem>
+            <Price>
+              <BaseAmount Code="EUR">59.50</BaseAmount>
+              <Taxes>
+                <Total Code="EUR">153.58</Total>
+              </Taxes>
+            </Price>
+            <OriginDestination refs="OD1">
+              <Flight refs="SEG_LHRBCN_1">
+                <Departure>
+                  <AirportCode>LHR</AirportCode>
+                  <Date>2017-08-22</Date>
+                  <Time>08:00</Time>
+                </Departure>
+                <Arrival>
+                  <AirportCode>BCN</AirportCode>
+                  <Date>2017-08-22</Date>
+                  <Time>10:59</Time>
+                </Arrival>
+                <MarketingCarrier>
+                  <AirlineID>C9</AirlineID>
+                  <FlightNumber>070</FlightNumber>
+                </MarketingCarrier>
+                <OperatingCarrier></OperatingCarrier>
+              </Flight>
+            </OriginDestination>
+            <OriginDestination refs="OD2">
+              <Flight refs="SEG_BCNLHR_2">
+                <Departure>
+                  <AirportCode>BCN</AirportCode>
+                  <Date>2017-08-26</Date>
+                  <Time>12:00</Time>
+                </Departure>
+                <Arrival>
+                  <AirportCode>LHR</AirportCode>
+                  <Date>2017-08-26</Date>
+                  <Time>12:59</Time>
+                </Arrival>
+                <MarketingCarrier>
+                  <AirlineID>C9</AirlineID>
+                  <FlightNumber>071</FlightNumber>
+                </MarketingCarrier>
+                <OperatingCarrier></OperatingCarrier>
+              </Flight>
+            </OriginDestination>
+          </FlightItem>
+          <Associations>
+            <Passengers>
+              <PassengerReferences>SH1</PassengerReferences>
+            </Passengers>
+          </Associations>
+        </OrderItem>
+      </OrderItems>
+    </Order>
+    <Payments>
+      <Payment>
+        <Type>
+          <Code>CC</Code>
+          <Definition>Credit Card</Definition>
+        </Type>
+        <Method>
+          <PaymentCardMethod>
+            <MaskedCardNumber>XXXXXXXXXXXX4444</MaskedCardNumber>
+            <EffectiveExpireDate>
+              <Effective>0322</Effective>
+            </EffectiveExpireDate>
+          </PaymentCardMethod>
+        </Method>
+        <Amount Code="EUR" Taxable="true">426.16</Amount>
+      </Payment>
+    </Payments>
+    <TicketDocInfos>
+      <TicketDocInfo>
+        <TicketDocument>
+          <TicketDocNbr>8482346444</TicketDocNbr>
+          <Type>
+            <Code>702</Code>
+            <Definition>eTicket</Definition>
+          </Type>
+          <NumberofBooklets>1</NumberofBooklets>
+          <DateOfIssue>2017-04-28</DateOfIssue>
+        </TicketDocument>
+        <PassengerReference>SH1</PassengerReference>
+      </TicketDocInfo>
+      <TicketDocInfo>
+        <TicketDocument>
+          <TicketDocNbr>8482346444</TicketDocNbr>
+          <Type>
+            <Code>702</Code>
+            <Definition>eTicket</Definition>
+          </Type>
+          <NumberofBooklets>1</NumberofBooklets>
+          <DateOfIssue>2017-04-28</DateOfIssue>
+        </TicketDocument>
+        <PassengerReference>SH1</PassengerReference>
+      </TicketDocInfo>
+    </TicketDocInfos>
+    <DataLists>
+      <FlightSegmentList>
+        <FlightSegment SegmentKey="SEG_LHRBCN_1">
+          <Departure>
+            <AirportCode>LHR</AirportCode>
+            <Date>2017-08-22</Date>
+            <Time>08:00</Time>
+            <AirportName>Heathrow Airport</AirportName>
+          </Departure>
+          <Arrival>
+            <AirportCode>BCN</AirportCode>
+            <Date>2017-08-22</Date>
+            <Time>10:59</Time>
+            <AirportName>Barcelona?El Prat Airport</AirportName>
+          </Arrival>
+          <MarketingCarrier>
+            <AirlineID>C9</AirlineID>
+            <FlightNumber>070</FlightNumber>
+          </MarketingCarrier>
+        </FlightSegment>
+        <FlightSegment SegmentKey="SEG_BCNLHR_2">
+          <Departure>
+            <AirportCode>BCN</AirportCode>
+            <Date>2017-08-26</Date>
+            <Time>12:00</Time>
+            <AirportName>Barcelona?El Prat Airport</AirportName>
+          </Departure>
+          <Arrival>
+            <AirportCode>LHR</AirportCode>
+            <Date>2017-08-26</Date>
+            <Time>12:59</Time>
+            <AirportName>Heathrow Airport</AirportName>
+          </Arrival>
+          <MarketingCarrier>
+            <AirlineID>C9</AirlineID>
+            <FlightNumber>071</FlightNumber>
+          </MarketingCarrier>
+        </FlightSegment>
+      </FlightSegmentList>
+      <FlightList>
+        <Flight FlightKey="FL_LHRBCN_1">
+          <Journey>
+            <Time>P0DT1H59M0S</Time>
+          </Journey>
+          <SegmentReferences>SEG_LHRBCN_1</SegmentReferences>
+        </Flight>
+        <Flight FlightKey="FL_BCNLHR_2">
+          <Journey>
+            <Time>P0DT1H59M0S</Time>
+          </Journey>
+          <SegmentReferences>SEG_BCNLHR_2</SegmentReferences>
+        </Flight>
+      </FlightList>
+      <OriginDestinationList>
+        <OriginDestination OriginDestinationKey="OD1">
+          <DepartureCode>LHR</DepartureCode>
+          <ArrivalCode>BCN</ArrivalCode>
+          <FlightReferences>FL_LHRBCN_1</FlightReferences>
+        </OriginDestination>
+        <OriginDestination OriginDestinationKey="OD2">
+          <DepartureCode>BCN</DepartureCode>
+          <ArrivalCode>LHR</ArrivalCode>
+          <FlightReferences>FL_BCNLHR_2</FlightReferences>
+        </OriginDestination>
+      </OriginDestinationList>
+      <ServiceList></ServiceList>
+    </DataLists>
+  </Response>
+</OrderViewRS>

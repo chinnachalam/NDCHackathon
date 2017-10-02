@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OrderRetrieveRQ EchoToken="6b43b5fd-cd4e-4f6f-a56e-c5958497e171" Version="IATA2016.2" xmlns="http://www.iata.org/IATA/EDIST">
+	<Document>
+		<Name>NDC-Gateway</Name>
+		<ReferenceVersion>1.0</ReferenceVersion>
+	</Document>
+	<Party>
+		<Sender>
+			<TravelAgencySender>
+				<Name>test agent</Name>
+				<Type>TravelAgency</Type>
+				<Contacts>
+					<Contact>
+						<EmailContact>
+							<Address>ndc@usdtravel.com</Address>
+						</EmailContact>
+					</Contact>
+				</Contacts>
+				<PseudoCity>1F8</PseudoCity>
+				<IATA_Number>35200421</IATA_Number>
+				<AgencyID>test agent</AgencyID>
+				<AgentUser>
+					<Name>John Smith</Name>
+					<AgentUserID>1980</AgentUserID>
+					<UserRole>Admin</UserRole>
+				</AgentUser>
+			</TravelAgencySender>
+		</Sender>
+		<Recipient>
+			<MarketingCarrierRecipient>
+				<AirlineID>C9</AirlineID>
+			</MarketingCarrierRecipient>
+		</Recipient>
+	</Party>
+	<Query>
+		<Filters>
+			<OrderID Owner="C9">A12345RB8</OrderID>
+		</Filters>
+	</Query>
+</OrderRetrieveRQ>

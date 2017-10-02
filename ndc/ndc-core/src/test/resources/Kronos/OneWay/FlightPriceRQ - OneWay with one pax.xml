@@ -1,0 +1,93 @@
+<FlightPriceRQ xmlns="http://www.iata.org/IATA/EDIST" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               Version="IATA2016.2" xsi:schemaLocation="http://www.iata.org/IATA/EDIST FlightPriceRQ.xsd">
+    <Document>
+        <Name>KRONOS NDC GATEWAY</Name>
+        <ReferenceVersion>1.0</ReferenceVersion>
+    </Document>
+    <Party>
+        <Sender>
+            <TravelAgencySender>
+                <Contacts>
+                    <Contact>
+                        <EmailContact>
+                            <Address>ndc@usdtravel.com</Address>
+                        </EmailContact>
+                    </Contact>
+                </Contacts>
+                <PseudoCity>A4A</PseudoCity>
+                <IATA_Number>98417900</IATA_Number>
+                <AgencyID Owner="C9">C9</AgencyID>
+                <AgentUser>
+                    <Name>ksmith</Name>
+                    <AgentUserID>ksmith212</AgentUserID>
+                    <UserRole>Admin</UserRole>
+                </AgentUser>
+            </TravelAgencySender>
+        </Sender>
+    </Party>
+    <Travelers>
+        <Traveler>
+            <AnonymousTraveler>
+                <PTC Quantity="1">ADT</PTC>
+            </AnonymousTraveler>
+        </Traveler>
+    </Travelers>
+    <Query>
+        <OriginDestination>
+            <Flight>
+                <Departure>
+                    <AirportCode>CDG</AirportCode>
+                    <Date>2017-08-29</Date>
+                    <Time>07:50</Time>
+                </Departure>
+                <Arrival>
+                    <AirportCode>BCN</AirportCode>
+                    <Date>2017-08-29</Date>
+                    <Time>09:27</Time>
+                </Arrival>
+                <MarketingCarrier>
+                    <AirlineID>C9</AirlineID>
+                    <Name>Kronos Airlines</Name>
+                    <FlightNumber>050</FlightNumber>
+                </MarketingCarrier>
+                <Equipment>
+                    <AircraftCode>320</AircraftCode>
+                </Equipment>
+                <ClassOfService>
+                    <Code>M</Code>
+                </ClassOfService>
+            </Flight>
+            <Flight>
+                <Departure>
+                    <AirportCode>BCN</AirportCode>
+                    <Date>2017-08-30</Date>
+                    <Time>11:40</Time>
+                </Departure>
+                <Arrival>
+                    <AirportCode>FRA</AirportCode>
+                    <Date>2017-08-30</Date>
+                    <Time>13:35</Time>
+                </Arrival>
+                <MarketingCarrier>
+                    <AirlineID>C9</AirlineID>
+                    <Name>Kronos Airlines</Name>
+                    <FlightNumber>063</FlightNumber>
+                </MarketingCarrier>
+                <Equipment>
+                    <AircraftCode>319</AircraftCode>
+                </Equipment>
+                <ClassOfService>
+                    <Code>M</Code>
+                </ClassOfService>
+            </Flight>
+        </OriginDestination>
+
+    </Query>
+    <Preference>
+        <AirlinePreferences>
+            <Airline>
+                <AirlineID>C9</AirlineID>
+            </Airline>
+        </AirlinePreferences>
+    </Preference>
+</FlightPriceRQ>
