@@ -222,7 +222,7 @@ public class NDCConsumer {
 	 * @throws ClientException if unmarshalling server response to Java Object fails
 	 */
 	private <T> T sendRequest(String request, String method) throws ClientProtocolException, IOException, ClientException {
-		LOG.debug("{} request:\n{}", method, request);
+		LOG.info("{} request:\n{}", method, request);
 		return Request
 				.Post(url)
 				.userAgent(USER_AGENT)
