@@ -1,0 +1,9 @@
+target
+node_modules
+src/main/webapp/App/static/css/
+.classpath
+.settings
+.project
+.externalToolBuilders
+.idea
+*.iml
