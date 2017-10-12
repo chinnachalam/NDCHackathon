@@ -2,10 +2,8 @@ package tcs.ndc.hackathon.ndcrest.mapper.core;
 
 import org.iata.ndc.schema.AirShopReqParamsType;
 import org.iata.ndc.schema.AirShoppingRQ;
-import org.iata.ndc.schema.AirShoppingRS;
 import org.iata.ndc.schema.CurrCode;
 import org.springframework.stereotype.Component;
-import tcs.ndc.hackathon.ndccore.NDCConsumer;
 import tcs.ndc.hackathon.ndccore.builder.AirShoppingRQBuilder;
 import tcs.ndc.hackathon.ndcrest.model.offer.request.Connection;
 import tcs.ndc.hackathon.ndcrest.model.offer.request.Offer;

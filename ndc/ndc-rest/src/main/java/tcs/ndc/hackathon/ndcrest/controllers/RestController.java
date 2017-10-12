@@ -11,66 +11,63 @@ import tcs.ndc.hackathon.ndccore.NDCConsumer;
 import tcs.ndc.hackathon.ndcrest.mapper.core.AirShoppingRQMapper;
 import tcs.ndc.hackathon.ndcrest.model.offer.request.Offer;
 
-import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class RestController {
 
     @Autowired AirShoppingRQMapper airShoppingRQMapper;
+    @Autowired NDCConsumer ndcConsumer;
 
     @RequestMapping(value = "/offers", method = RequestMethod.POST)
     @ResponseBody
     public void offers(@RequestBody Offer offer) {
-       /* NDCConsumer client = new NDCConsumer("http://iata.api.mashery.com/athena/ndc162api", "2be3rbjvuj32peygqcwp6fy5");*/
-        NDCConsumer client = new NDCConsumer("http://iata.api.mashery.com/kronos/ndc162api", "2be3rbjvuj32peygqcwp6fy5");
 
         try {
             AirShoppingRQ airShoppingRQ = airShoppingRQMapper.map(offer);
-            AirShoppingRS response = client.airShopping(airShoppingRQ);
+            AirShoppingRS response = ndcConsumer.airShopping(airShoppingRQ);
 
-            System.out.println("SuccessType:" + response.getSuccess());
-            System.out.println("Document Name: " + response.getDocument().getName());
             AirShoppingRS.OffersGroup offersGroup = response.getOffersGroup();
+            AirShoppingRS.DataLists dataLists = response.getDataLists();
+
+
             List<AirShoppingRS.OffersGroup.AirlineOffers> airlineOffersList = offersGroup.getAirlineOffers();
             for (AirShoppingRS.OffersGroup.AirlineOffers airlineOffers : airlineOffersList) {
                 for (AirShoppingRS.OffersGroup.AirlineOffers.AirlineOffer airlineOffer : airlineOffers.getAirlineOffer()) {
-                    System.out.print(airlineOffer.getOfferID().getValue());
                     PricedOffer pricedOffer = airlineOffer.getPricedOffer();
-                    List<PricedFlightOfferType.OfferPrice> offerPriceList = pricedOffer.getOfferPrice();
+                    /*List<PricedFlightOfferType.OfferPrice> offerPriceList = pricedOffer.getOfferPrice();
                     for (PricedFlightOfferType.OfferPrice offerPrice : offerPriceList) {
                         System.out.print(offerPrice.getRequestedDate().getPriceDetail().getTotalAmount().getSimpleCurrencyPrice().getValue() + "---");
                         System.out.print(offerPrice.getRequestedDate().getPriceDetail().getBaseAmount().getValue() + "---");
                         System.out.print(offerPrice.getRequestedDate().getPriceDetail().getTaxes().getTotal().getValue() + "---");
-                    }
+                    }*/
                     List<PricedFlightOfferAssocType> pricedFlightOfferAssocTypeList = pricedOffer.getAssociations();
                     for (PricedFlightOfferAssocType pricedFlightOfferAssocType : pricedFlightOfferAssocTypeList) {
-
+                        System.out.println("******************************************************");
                         for (Object flightReference : pricedFlightOfferAssocType.getApplicableFlight().getFlightReferences().getValue()) {
                             DataListType.Flight flight = (DataListType.Flight) flightReference;
-                            System.out.print(flight.getFlightKey());
+                            for(Object segmentReference: flight.getSegmentReferences().getValue()) {
+                                ListOfFlightSegmentType segment = (ListOfFlightSegmentType) segmentReference;
+                                System.out.print(segment.getDeparture().getAirportCode().getValue()
+                                        + segment.getDeparture().getTime()
+                                        + "----------"
+                                        + segment.getArrival().getAirportCode().getValue()
+                                        + segment.getArrival().getTime());
+                            }
+                            System.out.println("");
                         }
-                    }
-                    System.out.println();
-                }
-            }
 
-            AirShoppingRS.DataLists dataLists = response.getDataLists();
-            List<ListOfFlightSegmentType> listOfFlightSegmentTypes = dataLists.getFlightSegmentList();
-            for (ListOfFlightSegmentType listOfFlightSegmentType : listOfFlightSegmentTypes) {
-                System.out.println("+++++++++++++++++++++++++++++++++++");
-                Departure departure = listOfFlightSegmentType.getDeparture();
-                System.out.print(departure.getAirportCode().getValue() + "-");
-                FlightArrivalType flightArrivalType = listOfFlightSegmentType.getArrival();
-                System.out.print(flightArrivalType.getAirportCode().getValue() + "-");
-                System.out.print(listOfFlightSegmentType.getMarketingCarrier().getAirlineID().getValue() + "-");
-                System.out.println(listOfFlightSegmentType.getOperatingCarrier().getAirlineID().getValue());
-                System.out.println("------------------------------------");
+                        PriceClassType priceClassType = (PriceClassType) pricedFlightOfferAssocType.getPriceClass().getPriceClassReference();
+                        System.out.println(priceClassType.getFareBasisCode().getCode());
+                        System.out.println("******************************************************");
+                    }
+                }
             }
         }
         catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 }
