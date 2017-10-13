@@ -22,7 +22,7 @@ public class AirShoppingRQMapper {
             LocalDate departureDate = connection.getDepartureDate();
             GregorianCalendar gc = new GregorianCalendar();
             gc.set(GregorianCalendar.DAY_OF_MONTH, departureDate.getDayOfMonth());
-            gc.set(GregorianCalendar.MONTH, departureDate.getMonthValue());
+            gc.set(GregorianCalendar.MONTH, departureDate.getMonthValue() - 1);
             gc.set(GregorianCalendar.YEAR, departureDate.getYear());
 
             builder.addOriginDestination(connection.getOrigin(), connection.getDestination(), gc.getTime());
