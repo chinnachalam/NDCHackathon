@@ -11,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
 import tcs.ndc.hackathon.ndccore.NDCConsumer;
 
 import java.util.Arrays;
@@ -34,5 +35,12 @@ public class NdcRestApplication {
         NDCConsumer ndcConsumer = new NDCConsumer(ndcServiceUrl, authorizationKey);
 
         return ndcConsumer;
+    }
+
+    @Bean
+    public RestTemplate restTemplate() {
+        RestTemplate restTemplate = new RestTemplate();
+
+        return restTemplate;
     }
 }
