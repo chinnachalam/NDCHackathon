@@ -29,7 +29,6 @@ public class AirShoppingRQMapper {
         }
         builder.addAirlinePreference(offer.getAirlinePreference());
         builder.addCabinPreference(offer.getCabin().getValue());
-
         LinkedList<CurrCode> currCodes = new LinkedList<CurrCode>();
         CurrCode currCode = new CurrCode();
         currCode.setId(offer.getCurrency());
