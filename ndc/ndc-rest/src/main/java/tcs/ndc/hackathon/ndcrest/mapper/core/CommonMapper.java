@@ -1,9 +1,11 @@
 package tcs.ndc.hackathon.ndcrest.mapper.core;
 
 import org.iata.ndc.schema.*;
+import org.springframework.stereotype.Component;
 
 import java.util.Set;
 
+@Component
 public class CommonMapper {
 
     private static final ObjectFactory objectFactory = new ObjectFactory();
@@ -21,7 +23,7 @@ public class CommonMapper {
     public MsgPartiesType buildParty() {
         MsgPartiesType party = new MsgPartiesType();
         party.setSender(buildSender());
-        party.setRecipient(buildRecipient());
+      //  party.setRecipient(buildRecipient());
         return  party;
     }
 

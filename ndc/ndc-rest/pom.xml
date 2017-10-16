@@ -56,7 +56,7 @@
                 <artifactId>heroku-maven-plugin</artifactId>
                 <version>1.1.1</version>
                 <configuration>
-                    <appName>ndchack</appName>
+                    <appName>ndcrestapi</appName>
                     <includeTarget>false</includeTarget>
                     <includes>
                         <include>${basedir}/${full-artifact-name}</include>

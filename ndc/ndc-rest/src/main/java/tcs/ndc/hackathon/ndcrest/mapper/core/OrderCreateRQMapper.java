@@ -13,7 +13,7 @@ import java.util.List;
 public class OrderCreateRQMapper {
 
     @Autowired CommonMapper commonMapper;
-    @Autowired ObjectFactory objectFactory;
+    /*@Autowired*/ ObjectFactory objectFactory;
 
     public OrderCreateRQ buildOrderCreateRQ (OrderCreate orderCreate) {
         OrderCreateRQ orderCreateRQ = new OrderCreateRQ();
@@ -28,7 +28,7 @@ public class OrderCreateRQMapper {
     private OrderCreateRQ.Query buildQuery() {
         OrderCreateRQ.Query query = new OrderCreateRQ.Query();
 
-        query.setPassengers(buildPassengers());
+        //query.setPassengers(buildPassengers());
 
         return query;
     }

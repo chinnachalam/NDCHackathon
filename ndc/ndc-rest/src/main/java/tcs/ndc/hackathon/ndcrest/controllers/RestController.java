@@ -45,7 +45,7 @@ public class RestController {
             offerResponse = offerResponseMapper.map(response);
         }
         catch (Exception e) {
-            e.printStackTrace();
+           // Log here
         }
         return offerResponse;
     }
