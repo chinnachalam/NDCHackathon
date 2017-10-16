@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.*;
 import tcs.ndc.hackathon.database.rest.dao.DaoService;
 import tcs.ndc.hackathon.database.rest.dao.Response;
 
+import java.util.UUID;
+
 @Controller
 public class RestController {
 
@@ -27,10 +29,17 @@ public class RestController {
         return daoService.get(id, collectionName);
     }
 
+    @RequestMapping(value = "/{collectionName}/{id}", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    @ResponseBody
+    public Response saveWithId(@PathVariable String collectionName, @RequestBody Object objectToStore, @PathVariable(required = false) String id) {
+        id = id == null || id == ""? UUID.randomUUID().toString() : id;
+        return daoService.save(objectToStore, collectionName, id);
+    }
+
     @RequestMapping(value = "/{collectionName}", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public Response save(@PathVariable String collectionName, @RequestBody Object objectToStore) {
-        return daoService.save(objectToStore, collectionName);
+        return daoService.save(objectToStore, collectionName,  UUID.randomUUID().toString() );
     }
 
     @RequestMapping(method = RequestMethod.DELETE, produces = "application/json;charset=UTF-8")

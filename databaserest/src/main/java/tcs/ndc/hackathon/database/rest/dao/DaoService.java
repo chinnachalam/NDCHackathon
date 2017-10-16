@@ -24,9 +24,10 @@ public class DaoService {
 
     }
 
-    public Response save(Object objectToStore, String collectionName) {
+    public Response save(Object objectToStore, String collectionName, String id) {
         Data data = new Data();
         data.setObjectToStore(objectToStore);
+        data.setId(id);
         mongoTemplate.save(data, collectionName);
 
         Response response = new Response();

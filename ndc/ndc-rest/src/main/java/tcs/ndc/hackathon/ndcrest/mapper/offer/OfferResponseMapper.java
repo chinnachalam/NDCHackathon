@@ -2,22 +2,29 @@ package tcs.ndc.hackathon.ndcrest.mapper.offer;
 
 import org.iata.ndc.schema.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Component;
-import org.springframework.web.client.RestTemplate;
 import tcs.ndc.hackathon.ndcrest.consumer.DatabaseRestConsumer;
 import tcs.ndc.hackathon.ndcrest.model.offer.response.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
+
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 
 @Component
 public class OfferResponseMapper {
 
     @Autowired DatabaseRestConsumer databaseRestConsumer;
 
-    public List<Offer> map(AirShoppingRS response) {
+    public OfferResponse map(AirShoppingRS response) {
+        String shopId = UUID.randomUUID().toString();
+        OfferResponse offerResponse = new OfferResponse();
         List<Offer> offers = new ArrayList<>();
+        offerResponse.setOffers(offers);
+
+        offerResponse.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).confirmOrder(shopId)).withRel("confirmOrder"));
 
         try {
             AirShoppingRS.OffersGroup offersGroup = response.getOffersGroup();
@@ -53,7 +60,13 @@ public class OfferResponseMapper {
                             for (PricedFlightOfferAssocType pricedFlightOfferAssoc : offerPrice.getRequestedDate().getAssociations()) {
                                 offer.setServices(mapServices(pricedFlightOfferAssoc.getAssociatedService()));
                             }
-                            databaseRestConsumer.save(offer, "offer");
+                            String offerId = databaseRestConsumer.save(offer, "offer");
+                            if (true) {
+                                offer.setServices(new ArrayList<>());
+                            }
+                            offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).availableServices(shopId, offerId)).withRel("availableServices"));
+                            offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).addOfferToShop(shopId, offerId)).withRel("addOfferToShop"));
+                            offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).removeOfferFromShop(shopId, offerId)).withRel("removeOfferFromShop"));
                             offers.add(offer);
                         }
                     }
@@ -64,7 +77,7 @@ public class OfferResponseMapper {
             e.printStackTrace();
         }
 
-        return offers;
+        return offerResponse;
     }
 
     private Segment mapSegment(ListOfFlightSegmentType coreSegment) {

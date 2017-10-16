@@ -1,10 +1,12 @@
 package tcs.ndc.hackathon.ndcrest.model.offer.response;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.iata.ndc.schema.NamedAssoc;
+import org.springframework.hateoas.ResourceSupport;
 
 import java.util.List;
 
-public class Offer {
+public class Offer extends ResourceSupport {
 
     private Price price;
     private Connection connection;
