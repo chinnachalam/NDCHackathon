@@ -25,6 +25,7 @@ public class OfferResponseMapper {
         offerResponse.setOffers(offers);
 
         offerResponse.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).confirmOrder(shopId)).withRel("confirmOrder"));
+        offerResponse.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).getShopDetails(shopId)).withRel("shopDetails"));
 
         try {
             AirShoppingRS.OffersGroup offersGroup = response.getOffersGroup();
@@ -55,14 +56,15 @@ public class OfferResponseMapper {
                         List<PricedFlightOfferType.OfferPrice> offerPriceList = pricedOffer.getOfferPrice();
                         for (PricedFlightOfferType.OfferPrice offerPrice : offerPriceList) {
                             Offer offer = new Offer();
+                            String offerId = UUID.randomUUID().toString();
                             offer.setConnection(connection);
                             offer.setPrice(mapPrice(offerPrice.getRequestedDate().getPriceDetail()));
                             for (PricedFlightOfferAssocType pricedFlightOfferAssoc : offerPrice.getRequestedDate().getAssociations()) {
-                                offer.setServices(mapServices(pricedFlightOfferAssoc.getAssociatedService()));
+                                offer.setServices(mapServices(pricedFlightOfferAssoc.getAssociatedService(), shopId, offerId));
                             }
-                            String offerId = databaseRestConsumer.save(offer, "offer");
+                            databaseRestConsumer.saveWithId(offer, "offer", offerId);
                             if (true) {
-                                offer.setServices(new ArrayList<>());
+                                offer.setServices(null);
                             }
                             offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).availableServices(shopId, offerId)).withRel("availableServices"));
                             offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).addOfferToShop(shopId, offerId)).withRel("addOfferToShop"));
@@ -118,16 +120,21 @@ public class OfferResponseMapper {
         return price;
     }
 
-    private List<Service> mapServices(ServiceInfoAssocType serviceInfoAssocType) {
+    private List<Service> mapServices(ServiceInfoAssocType serviceInfoAssocType, String shopId, String offerId) {
         List<Service> services = new ArrayList<>();
         for (Object serviceReference : serviceInfoAssocType.getServiceReferences()) {
             Service service = new Service();
+            String serviceId = UUID.randomUUID().toString();
+            service.setServiceId(serviceId);
             ServiceDetailType serviceDetailType = (ServiceDetailType) serviceReference;
             if (serviceDetailType.getEncoding() != null && serviceDetailType.getEncoding().getCode() != null) {
                 service.setCode(serviceDetailType.getEncoding().getCode().getValue());
             }
             service.setDescription(serviceDetailType.getDescriptions().getDescription().get(0).getText().getValue());
             service.setPrice(serviceDetailType.getPrice().get(0).getTotal().getValue().toString());
+
+            service.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).addServiceToShop(shopId, offerId, serviceId)).withRel("addServiceToShop"));
+            service.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).removeServiceFromShop(shopId, offerId, serviceId)).withRel("removeServiceFromShop"));
 
             services.add(service);
         }

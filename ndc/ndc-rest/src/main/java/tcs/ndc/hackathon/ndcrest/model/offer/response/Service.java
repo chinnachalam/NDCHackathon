@@ -1,9 +1,20 @@
 package tcs.ndc.hackathon.ndcrest.model.offer.response;
 
-public class Service {
+import org.springframework.hateoas.ResourceSupport;
+
+public class Service extends ResourceSupport{
+    private String serviceId;
     private String code;
     private String description;
     private String price;
+
+    public String getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(String serviceId) {
+        this.serviceId = serviceId;
+    }
 
     public String getCode() {
         return code;

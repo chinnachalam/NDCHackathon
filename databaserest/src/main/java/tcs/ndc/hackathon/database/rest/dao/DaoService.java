@@ -39,7 +39,9 @@ public class DaoService {
     public Object get(String id, String collectionName) {
         Data data = mongoTemplate
                 .findOne(new BasicQuery("{_id: \"" + id + "\"}"), Data.class, collectionName);
-
+        if (data == null) {
+            return "";
+        }
         return data.getObjectToStore();
     }
 }

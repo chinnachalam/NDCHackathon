@@ -18,12 +18,15 @@ import tcs.ndc.hackathon.ndcrest.model.offer.response.OfferResponse;
 import tcs.ndc.hackathon.ndcrest.model.offer.response.Service;
 import tcs.ndc.hackathon.ndcrest.model.order.OrderCreate;
 import tcs.ndc.hackathon.ndcrest.model.order.OrderView;
+import tcs.ndc.hackathon.ndcrest.model.shop.ShopDetails;
 import tcs.ndc.hackathon.ndcrest.service.OrderService;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class RestController {
@@ -45,29 +48,91 @@ public class RestController {
             offerResponse = offerResponseMapper.map(response);
         }
         catch (Exception e) {
-           // Log here
+            // Log here
         }
         return offerResponse;
-    }
-
-    @RequestMapping(value = "/available-services/{shopId}/{offerId}", method = RequestMethod.GET)
-    @ResponseBody
-    public List<Service> availableServices(@PathVariable String shopId, @PathVariable String offerId) {
-        ObjectMapper objectMapper = new ObjectMapper();
-        return databaseRestConsumer.get("offer", offerId, tcs.ndc.hackathon.ndcrest.model.offer.response.Offer.class).getBody().getServices();
-
     }
 
     @RequestMapping(value = "/add-offer-to-shop/{shopId}/{offerId}", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<String> addOfferToShop(@PathVariable String shopId, @PathVariable String offerId) {
+        ShopDetails shopDetails = databaseRestConsumer.get("shop", shopId, ShopDetails.class).getBody() != null ? databaseRestConsumer.get("shop", shopId, ShopDetails.class).getBody() : new ShopDetails();
+        Map<String, String> addedDetails = shopDetails != null && shopDetails.getAddedDetails() != null ? shopDetails.getAddedDetails() : new HashMap<>();
+        addedDetails.put(offerId, "offer");
+        shopDetails.setAddedDetails(addedDetails);
+        databaseRestConsumer.saveWithId(shopDetails, "shop", shopId);
+
         return null;
     }
 
     @RequestMapping(value = "/remove-offer-from-shop/{shopId}/{offerId}", method = RequestMethod.POST)
     @ResponseBody
     public ResponseEntity<String> removeOfferFromShop(@PathVariable String shopId, @PathVariable String offerId) {
+        ShopDetails shopDetails = databaseRestConsumer.get("shop", shopId, ShopDetails.class).getBody() != null ? databaseRestConsumer.get("shop", shopId, ShopDetails.class).getBody() : new ShopDetails();
+        Map<String, String> addedDetails = shopDetails != null && shopDetails.getAddedDetails() != null ? shopDetails.getAddedDetails() : new HashMap<>();
+        addedDetails.remove(offerId);
+        shopDetails.setAddedDetails(addedDetails);
+        databaseRestConsumer.saveWithId(shopDetails, "shop", shopId);
+
         return null;
+    }
+
+    @RequestMapping(value = "/available-services/{shopId}/{offerId}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Service> availableServices(@PathVariable String shopId, @PathVariable String offerId) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        List<Service> services = databaseRestConsumer.get("offer", offerId, tcs.ndc.hackathon.ndcrest.model.offer.response.Offer.class).getBody().getServices();
+        for (Service service : services) {
+            databaseRestConsumer.saveWithId(service, "service", service.getServiceId());
+        }
+        return services;
+    }
+
+    @RequestMapping(value = "/add-service-to-shop/{shopId}/{offerId}/{serviceId}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Service> addServiceToShop(@PathVariable String shopId, @PathVariable String offerId, @PathVariable String serviceId) {
+        ShopDetails shopDetails = databaseRestConsumer.get("shop", shopId, ShopDetails.class).getBody() != null ? databaseRestConsumer.get("shop", shopId, ShopDetails.class).getBody() : new ShopDetails();
+        Map<String, String> addedDetails = shopDetails != null && shopDetails.getAddedDetails() != null ? shopDetails.getAddedDetails() : new HashMap<>();
+        addedDetails.put(serviceId, "service");
+        shopDetails.setAddedDetails(addedDetails);
+        databaseRestConsumer.saveWithId(shopDetails, "shop", shopId);
+
+        return null;
+    }
+
+    @RequestMapping(value = "/remove-service-from-shop/{shopId}/{offerId}/{serviceId}", method = RequestMethod.POST)
+    @ResponseBody
+    public List<Service> removeServiceFromShop(@PathVariable String shopId, @PathVariable String offerId, @PathVariable String serviceId) {
+        ShopDetails shopDetails = databaseRestConsumer.get("shop", shopId, ShopDetails.class).getBody() != null ? databaseRestConsumer.get("shop", shopId, ShopDetails.class).getBody() : new ShopDetails();
+        Map<String, String> addedDetails = shopDetails != null && shopDetails.getAddedDetails() != null ? shopDetails.getAddedDetails() : new HashMap<>();
+        addedDetails.remove(serviceId);
+        shopDetails.setAddedDetails(addedDetails);
+        databaseRestConsumer.saveWithId(shopDetails, "shop", shopId);
+
+        return null;
+
+    }
+
+    @RequestMapping(value = "/shop-details/{shopId}", method = RequestMethod.GET)
+    @ResponseBody
+    public ShopDetails getShopDetails(@PathVariable String shopId) {
+        ShopDetails shopDetails = databaseRestConsumer.get("shop", shopId, ShopDetails.class).getBody() != null ? databaseRestConsumer.get("shop", shopId, ShopDetails.class).getBody() : new ShopDetails();
+        Map<String, String> addedDetails = shopDetails != null && shopDetails.getAddedDetails() != null ? shopDetails.getAddedDetails() : new HashMap<>();
+        List<tcs.ndc.hackathon.ndcrest.model.offer.response.Offer> offers = new ArrayList<>();
+        List<Service> services = new ArrayList<>();
+        for (String id : addedDetails.keySet()) {
+            String type = addedDetails.get(id);
+            if ("offer".equals(type)) {
+                offers.add(databaseRestConsumer.get("offer", id, tcs.ndc.hackathon.ndcrest.model.offer.response.Offer.class).getBody());
+            }
+            else if ("service".equals(type)) {
+                services.add(databaseRestConsumer.get("service", id, Service.class).getBody());
+            }
+        }
+        shopDetails.setOffers(offers);
+        shopDetails.setServices(services);
+        shopDetails.setAddedDetails(null);
+        return shopDetails;
     }
 
     @RequestMapping(value = "/confirm-order/{shopId}", method = RequestMethod.POST)

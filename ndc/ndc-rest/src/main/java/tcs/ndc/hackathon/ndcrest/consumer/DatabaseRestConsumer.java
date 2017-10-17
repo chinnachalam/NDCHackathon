@@ -30,6 +30,19 @@ public class DatabaseRestConsumer {
         return linkedHashMap.get("id");
     }
 
+    public String saveWithId(Object object, String collectionName, String id) {
+        final HttpHeaders headers = new HttpHeaders();
+        headers.add("Accept", "application/json;charset=UTF-8");
+        headers.add("Content-Type", MediaType.APPLICATION_JSON_VALUE);
+
+        HttpEntity httpEntity = new HttpEntity(object, headers);
+
+        ResponseEntity<Object> responseEntity = restTemplate.exchange(databaserestEndpoint + collectionName + "/" + id, HttpMethod.POST, httpEntity, Object.class, new HashMap<String, String>());
+
+        LinkedHashMap<String, String> linkedHashMap = (LinkedHashMap<String, String>) responseEntity.getBody();
+        return linkedHashMap.get("id");
+    }
+
     public <T> ResponseEntity<T>  get(String collectionName, String id, Class<T> type)  {
         final HttpHeaders headers = new HttpHeaders();
         headers.add("Accept", "application/json;charset=UTF-8");
