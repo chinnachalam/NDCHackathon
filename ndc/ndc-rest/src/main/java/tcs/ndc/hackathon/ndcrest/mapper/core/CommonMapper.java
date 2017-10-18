@@ -3,6 +3,7 @@ package tcs.ndc.hackathon.ndcrest.mapper.core;
 import org.iata.ndc.schema.*;
 import org.springframework.stereotype.Component;
 
+import javax.xml.bind.JAXBElement;
 import java.util.Set;
 
 @Component
@@ -23,7 +24,7 @@ public class CommonMapper {
     public MsgPartiesType buildParty() {
         MsgPartiesType party = new MsgPartiesType();
         party.setSender(buildSender());
-      //  party.setRecipient(buildRecipient());
+        party.setRecipient(buildRecipient());
         return  party;
     }
 
@@ -31,7 +32,6 @@ public class CommonMapper {
     //----- Party/Sender Section ------
     public MsgPartiesType.Sender buildSender() {
         MsgPartiesType.Sender sender = new MsgPartiesType.Sender();
-
         //Travel Agency Sender
         TravelAgencySenderType travelAgentSender = new TravelAgencySenderType();
         travelAgentSender.setName("TCSNDCTestAgent");
@@ -40,11 +40,11 @@ public class CommonMapper {
         agencyIDType.setValue("TCSNDCTestAgent");
         travelAgentSender.setAgencyID(agencyIDType);
         sender.setTravelAgencySender(travelAgentSender);
-
         return sender;
     }
 
-    public MsgPartiesType.Recipient buildRecipient() {
+    public JAXBElement<MsgPartiesType.Recipient> buildRecipient() {
+        JAXBElement<MsgPartiesType.Recipient> recipientJAXBElement = null;
         MsgPartiesType.Recipient recipient = new MsgPartiesType.Recipient();
 
         //ORA Recipient
@@ -53,8 +53,8 @@ public class CommonMapper {
         airlineID.setValue("C9");
         oraReciever.setAirlineID(airlineID);
         recipient.setORARecipient(oraReciever);
-
-        return recipient;
+        recipientJAXBElement.setValue(recipient);
+        return recipientJAXBElement;
     }
 
 

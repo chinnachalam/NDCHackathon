@@ -18,6 +18,7 @@ import tcs.ndc.hackathon.ndcrest.model.offer.response.OfferResponse;
 import tcs.ndc.hackathon.ndcrest.model.offer.response.Service;
 import tcs.ndc.hackathon.ndcrest.model.order.OrderCreate;
 import tcs.ndc.hackathon.ndcrest.model.order.OrderView;
+import tcs.ndc.hackathon.ndcrest.model.order.response.OrderResponse;
 import tcs.ndc.hackathon.ndcrest.model.shop.ShopDetails;
 import tcs.ndc.hackathon.ndcrest.service.OrderService;
 
@@ -137,14 +138,16 @@ public class RestController {
 
     @RequestMapping(value = "/confirm-order/{shopId}", method = RequestMethod.POST)
     @ResponseBody
-    public ResponseEntity<String> confirmOrder(@PathVariable String shopId) {
-        return null;
+    public OrderResponse confirmOrder(@PathVariable String shopId) {
+
+        return orderService.createOrder(shopId);
     }
 
     @RequestMapping(value = "/createorder", method = RequestMethod.POST)
     @ResponseBody
     public OrderView createOrder(@RequestBody OrderCreate orderCreate) {
-        return orderService.createOrder(orderCreate);
+        //return orderService.createOrder(orderCreate);
+        return null;
     }
 
     @ExceptionHandler
