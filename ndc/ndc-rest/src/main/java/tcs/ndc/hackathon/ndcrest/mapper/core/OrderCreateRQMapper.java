@@ -26,12 +26,10 @@ import java.util.Map;
 @Component
 public class OrderCreateRQMapper {
 
-    @Autowired
-    CommonMapper commonMapper;
-    /*@Autowired*/ ObjectFactory objectFactory;
-    @Autowired
-    DatabaseRestConsumer databaseRestConsumer;
-
+    @Autowired CommonMapper commonMapper;
+    //@Autowired ObjectFactory objectFactory;
+    @Autowired DatabaseRestConsumer databaseRestConsumer;
+    ObjectFactory objectFactory = new ObjectFactory();
 
     public OrderCreateRQ buildOrderCreateRQ(String shopId) {
         ShopDetails shopDetails = getShopDetails(shopId);
@@ -44,6 +42,8 @@ public class OrderCreateRQMapper {
         }
 
         OrderCreateRQ orderCreateRQ = new OrderCreateRQ();
+        orderCreateRQ.setEchoToken("{{$guid}}");
+        orderCreateRQ.setVersion("IATA2016.2");
         orderCreateRQ.setDocument(commonMapper.buildDocument());
         orderCreateRQ.setParty(commonMapper.buildParty());
         orderCreateRQ.setQuery(buildQuery(shopId, employee, shopDetails));
@@ -84,6 +84,7 @@ public class OrderCreateRQMapper {
         passenger.setObjectKey("SH1");
         TravelerCoreType.PTC ptc = new TravelerCoreType.PTC();
         ptc.setQuantity(new BigInteger("1"));
+        ptc.setValue("1");
         passenger.setPTC(ptc);
 
         //------ Name Details ------
@@ -123,7 +124,9 @@ public class OrderCreateRQMapper {
         addressContactType.getStreet().add(employee.getContacts().getAddressContact().getStreet());
         addressContactType.setCityName(employee.getContacts().getAddressContact().getCityName());
         addressContactType.setPostalCode(employee.getContacts().getAddressContact().getPostalCode());
-        addressContactType.setCounty(employee.getContacts().getAddressContact().getCountryName());
+        CountryCode countryCode = new CountryCode();
+        countryCode.setValue(employee.getContacts().getAddressContact().getCountryName());
+        addressContactType.setCountryCode(countryCode);
         contact.setAddressContact(addressContactType);
 
         //Email Contact
@@ -160,32 +163,47 @@ public class OrderCreateRQMapper {
         ShoppingResponseOrderType.Offer offer = new ShoppingResponseOrderType.Offer();
         ItemIDType itemIDType = new ItemIDType();
         itemIDType.setOwner("C9");
+        itemIDType.setValue("1");
         offer.setOfferID(itemIDType);
         List<ShoppingResponseOrderType.Offer.OfferItem> offerItemList = new ArrayList<>();
-        for (Map.Entry<String, String> entry : addedDetails.entrySet()) {
-
-            //Service Offers
-            if ("service".equals(entry.getValue().toLowerCase())) {
-                ShoppingResponseOrderType.Offer.OfferItem offerItem = new ShoppingResponseOrderType.Offer.OfferItem();
-                ItemIDType itemIDTypeOfferItem = new ItemIDType();
-                itemIDTypeOfferItem.setObjectKey("ID1");
-                itemIDTypeOfferItem.setOwner("C9");
-                itemIDTypeOfferItem.setValue("1_1");
-                offerItem.setOfferItemID(itemIDTypeOfferItem);
-                List<Object> passengerList = new ArrayList<>();
-                passengerList.add("SH1");
-                offerItem.setPassengers(passengerList);
-                offerItemList.add(offerItem);
+        if(addedDetails!=null) {
+            for (Map.Entry<String, String> entry : addedDetails.entrySet()) {
+                //Service Offers
+                if ("service".equals(entry.getValue().toLowerCase())) {
+                    ShoppingResponseOrderType.Offer.OfferItem offerItem = new ShoppingResponseOrderType.Offer.OfferItem();
+                    ItemIDType itemIDTypeOfferItem = new ItemIDType();
+                    itemIDTypeOfferItem.setObjectKey("ID1");
+                    itemIDTypeOfferItem.setOwner("C9");
+                    itemIDTypeOfferItem.setValue("1_1");
+                    offerItem.setOfferItemID(itemIDTypeOfferItem);
+                    List<Object> passengerList = new ArrayList<>();
+                    passengerList.add("SH1");
+                    offerItem.setPassengers(passengerList);
+                    offerItemList.add(offerItem);
+                }
             }
+        } else {
+            //throw exception;
+            ShoppingResponseOrderType.Offer.OfferItem offerItem = new ShoppingResponseOrderType.Offer.OfferItem();
+            ItemIDType itemIDTypeOfferItem = new ItemIDType();
+            itemIDTypeOfferItem.setObjectKey("ID1");
+            itemIDTypeOfferItem.setOwner("C9");
+            itemIDTypeOfferItem.setValue("1_1");
+            offerItem.setOfferItemID(itemIDTypeOfferItem);
+            List<Object> passengerList = new ArrayList<>();
+            passengerList.add("SH1");
+            offerItem.setPassengers(passengerList);
+            offerItemList.add(offerItem);
         }
         offer.setOfferItems(offerItemList);
 
         ShoppingResponseOrderType.Offer.TotalPrice totalPrice = new ShoppingResponseOrderType.Offer.TotalPrice();
         SimpleCurrencyPriceType simpleCurrencyPriceType = new SimpleCurrencyPriceType();
+        simpleCurrencyPriceType.setCode("EUR");
         simpleCurrencyPriceType.setValue(new BigDecimal("1500"));
         totalPrice.setSimpleCurrencyPrice(simpleCurrencyPriceType);
         offer.setTotalPrice(totalPrice);
-
+        offerList.add(offer);
         shoppingResponseOrderType.setOffers(offerList);
 
         orderItems.setShoppingResponse(shoppingResponseOrderType);
@@ -202,6 +220,10 @@ public class OrderCreateRQMapper {
         PaymentCardType paymentCardType = new PaymentCardType();
         paymentCardType.setCardType(creditCard.getCardType());
         paymentCardType.setCardCode(creditCard.getCardCode());
+
+        PaymentCardType.CardNumber cardNumber = new PaymentCardType.CardNumber();
+        cardNumber.setValue(String.valueOf(creditCard.getCardNumber()));
+        paymentCardType.setCardNumber(cardNumber);
 
         PaymentCardType.SeriesCode seriesCode = new PaymentCardType.SeriesCode();
         seriesCode.setValue(String.valueOf(creditCard.getSeriesCode()));

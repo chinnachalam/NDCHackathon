@@ -53,7 +53,7 @@ public class CommonMapper {
         airlineID.setValue("C9");
         oraReciever.setAirlineID(airlineID);
         recipient.setORARecipient(oraReciever);
-        recipientJAXBElement.setValue(recipient);
+        //recipientJAXBElement.setValue(recipient);
         return recipientJAXBElement;
     }
 

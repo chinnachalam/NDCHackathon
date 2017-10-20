@@ -22,7 +22,7 @@ public class CreditCard {
     @JsonProperty("cardType")
     private String cardType;
     @JsonProperty("cardNumber")
-    private Integer cardNumber;
+    private Long cardNumber;
     @JsonProperty("seriesCode")
     private Integer seriesCode;
     @JsonProperty("cardHolderName")
@@ -53,12 +53,12 @@ public class CreditCard {
     }
 
     @JsonProperty("cardNumber")
-    public Integer getCardNumber() {
+    public Long getCardNumber() {
         return cardNumber;
     }
 
     @JsonProperty("cardNumber")
-    public void setCardNumber(Integer cardNumber) {
+    public void setCardNumber(Long cardNumber) {
         this.cardNumber = cardNumber;
     }
 

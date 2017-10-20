@@ -13,6 +13,8 @@ import tcs.ndc.hackathon.ndcrest.model.order.OrderView;
 import tcs.ndc.hackathon.ndcrest.model.order.PurchaseOrder.PurchaseOrder;
 import tcs.ndc.hackathon.ndcrest.model.order.response.OrderResponse;
 
+import java.io.IOException;
+
 @Component
 public class OrderService {
 
@@ -20,17 +22,12 @@ public class OrderService {
     @Autowired NDCConsumer ndcConsumer;
     @Autowired OrderViewResponseMapper orderViewResponseMapper;
 
-    public OrderResponse createOrder(String shopId) {
+    public OrderResponse createOrder(String shopId) throws IOException {
         OrderResponse orderResponse = null;
-        try {
-            OrderCreateRQ orderCreateRQ = orderCreateRQMapper.buildOrderCreateRQ(shopId);
-            System.out.println(orderCreateRQ);
-            OrderViewRS response = ndcConsumer.orderCreate(orderCreateRQ);
-            orderResponse = orderViewResponseMapper.map(response);
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        OrderCreateRQ orderCreateRQ = orderCreateRQMapper.buildOrderCreateRQ(shopId);
+        System.out.println(orderCreateRQ);
+        OrderViewRS response = ndcConsumer.orderCreate(orderCreateRQ);
+        orderResponse = orderViewResponseMapper.map(response);
         return orderResponse;
     }
 }

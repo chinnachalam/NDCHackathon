@@ -22,6 +22,7 @@ import tcs.ndc.hackathon.ndcrest.model.order.response.OrderResponse;
 import tcs.ndc.hackathon.ndcrest.model.shop.ShopDetails;
 import tcs.ndc.hackathon.ndcrest.service.OrderService;
 
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.ArrayList;
@@ -138,7 +139,7 @@ public class RestController {
 
     @RequestMapping(value = "/confirm-order/{shopId}", method = RequestMethod.POST)
     @ResponseBody
-    public OrderResponse confirmOrder(@PathVariable String shopId) {
+    public OrderResponse confirmOrder(@PathVariable String shopId) throws IOException {
 
         return orderService.createOrder(shopId);
     }

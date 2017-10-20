@@ -5,8 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import tcs.ndc.hackathon.ndcrest.consumer.DatabaseRestConsumer;
 import tcs.ndc.hackathon.ndcrest.model.offer.response.*;
+import tcs.ndc.hackathon.ndcrest.service.ImageGeneratorService;
 
+import javax.xml.datatype.Duration;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -17,8 +20,9 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 public class OfferResponseMapper {
 
     @Autowired DatabaseRestConsumer databaseRestConsumer;
+    @Autowired ImageGeneratorService imageGeneratorService;
 
-    public OfferResponse map(AirShoppingRS response) {
+    public OfferResponse map(AirShoppingRS response) throws Exception {
         String shopId = UUID.randomUUID().toString();
         OfferResponse offerResponse = new OfferResponse();
         List<Offer> offers = new ArrayList<>();
@@ -39,8 +43,10 @@ public class OfferResponseMapper {
                     for (PricedFlightOfferAssocType pricedFlightOfferAssocType : pricedFlightOfferAssocTypeList) {
                         Connection connection = new Connection();
                         List<Segment> segments = new ArrayList<>();
+                        Duration duration = null;
                         for (Object flightReference : pricedFlightOfferAssocType.getApplicableFlight().getFlightReferences().getValue()) {
                             DataListType.Flight flight = (DataListType.Flight) flightReference;
+                            duration = ((DataListType.Flight) flightReference).getJourney().getTime();
                             for (Object segmentReference : flight.getSegmentReferences().getValue()) {
                                 ListOfFlightSegmentType coreSegment = (ListOfFlightSegmentType) segmentReference;
                                 Segment segment = mapSegment(coreSegment);
@@ -52,6 +58,7 @@ public class OfferResponseMapper {
                         PriceClassType priceClassType = (PriceClassType) pricedFlightOfferAssocType.getPriceClass().getPriceClassReference();
                         connection.setFareBaseCode(priceClassType.getFareBasisCode().getCode());
                         connection.setCabinCode(priceClassType.getCode());
+                        connection.setConnectionTime(buildConnectionTime(duration));
 
                         List<PricedFlightOfferType.OfferPrice> offerPriceList = pricedOffer.getOfferPrice();
                         for (PricedFlightOfferType.OfferPrice offerPrice : offerPriceList) {
@@ -62,14 +69,16 @@ public class OfferResponseMapper {
                             for (PricedFlightOfferAssocType pricedFlightOfferAssoc : offerPrice.getRequestedDate().getAssociations()) {
                                 offer.setServices(mapServices(pricedFlightOfferAssoc.getAssociatedService(), shopId, offerId));
                             }
-                            databaseRestConsumer.saveWithId(offer, "offer", offerId);
-                            if (true) {
-                                offer.setServices(null);
+                            if(!filterOffer(offer)) {
+                                databaseRestConsumer.saveWithId(offer, "offer", offerId);
+                                if (true) {
+                                    offer.setServices(null);
+                                }
+                                offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).availableServices(shopId, offerId)).withRel("availableServices"));
+                                offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).addOfferToShop(shopId, offerId)).withRel("addOfferToShop"));
+                                offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).removeOfferFromShop(shopId, offerId)).withRel("removeOfferFromShop"));
+                                offers.add(offer);
                             }
-                            offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).availableServices(shopId, offerId)).withRel("availableServices"));
-                            offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).addOfferToShop(shopId, offerId)).withRel("addOfferToShop"));
-                            offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).removeOfferFromShop(shopId, offerId)).withRel("removeOfferFromShop"));
-                            offers.add(offer);
                         }
                     }
                 }
@@ -79,6 +88,13 @@ public class OfferResponseMapper {
             e.printStackTrace();
         }
 
+        if(offers.size()>4) {
+            offers.subList(4, offers.size()).clear();
+            for(int index=0; index<offers.size(); index++) {
+                String imageLink = imageGeneratorService.buildConnectionImageLink(shopId, offers.get(index).getConnection());
+                offers.get(index).getConnection().setCardLink(imageLink);
+            }
+        }
         return offerResponse;
     }
 
@@ -140,5 +156,22 @@ public class OfferResponseMapper {
         }
 
         return services;
+    }
+
+    private String buildConnectionTime(Duration duration) {
+        Date connectionDate = new Date();
+        long timeMilliseconds = duration.getTimeInMillis(connectionDate);
+        long minute = (timeMilliseconds / (1000*60)) % 60;
+        long hour = (timeMilliseconds / (1000*60*60));
+        String connectionTime = String.format("%2dH%02dM", hour, minute).trim();
+        return  connectionTime;
+    }
+
+    private boolean filterOffer(Offer offer) {
+        boolean offerStatus = false;
+
+        //if(offer.getPrice() > )
+
+        return offerStatus;
     }
 }
