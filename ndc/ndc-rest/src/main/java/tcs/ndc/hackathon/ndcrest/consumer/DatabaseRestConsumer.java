@@ -49,6 +49,7 @@ public class DatabaseRestConsumer {
         headers.add("Content-Type", MediaType.APPLICATION_JSON_VALUE);
 
         HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
+        //System.out.println(collectionName + " : " + id + " : "+ type);
         ResponseEntity<T> response = restTemplate.exchange(databaserestEndpoint + collectionName + "/"+ id, HttpMethod.GET, entity, type);
 
         return response;

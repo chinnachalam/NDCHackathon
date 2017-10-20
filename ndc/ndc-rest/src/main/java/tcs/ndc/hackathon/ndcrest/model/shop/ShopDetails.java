@@ -11,11 +11,18 @@ import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ShopDetails {
+
+    String passengerId = new String();
+
     Map<String, String> addedDetails = new HashMap<>();
 
     List<Offer> offers = new ArrayList<>();
 
     List<Service> services = new ArrayList<>();
+
+    public void setPassengerId(String passengerId) { this.passengerId = passengerId; }
+
+    public String getPassengerId() { return passengerId; }
 
     public Map<String, String> getAddedDetails() {
         return addedDetails;

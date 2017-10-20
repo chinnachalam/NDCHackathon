@@ -1,11 +1,14 @@
 package tcs.ndc.hackathon.ndcrest.model.offer.response;
 
+import javax.xml.datatype.Duration;
 import java.util.List;
 
 public class Connection {
     private List<Segment> segments;
     private String fareBaseCode;
     private String cabinCode;
+    private String connectionTime;
+    private String cardLink;
 
     public List<Segment> getSegments() {
         return segments;
@@ -29,5 +32,21 @@ public class Connection {
 
     public void setCabinCode(String cabinCode) {
         this.cabinCode = cabinCode;
+    }
+
+    public String getConnectionTime() {
+        return connectionTime;
+    }
+
+    public void setConnectionTime(String connectionTime) {
+        this.connectionTime = connectionTime;
+    }
+
+    public String getCardLink() {
+        return cardLink;
+    }
+
+    public void setCardLink(String cardLink) {
+        this.cardLink = cardLink;
     }
 }
