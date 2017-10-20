@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import tcs.ndc.hackathon.database.rest.dao.DaoService;
 import tcs.ndc.hackathon.database.rest.dao.Response;
 
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -27,6 +28,12 @@ public class RestController {
     @ResponseBody
     public Object get(@PathVariable String id, @PathVariable String collectionName) {
         return daoService.get(id, collectionName);
+    }
+
+    @RequestMapping(value = "/{collectionName}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Object> getAll(@PathVariable String collectionName) {
+        return daoService.getAll(collectionName);
     }
 
     @RequestMapping(value = "/{collectionName}/{id}", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")

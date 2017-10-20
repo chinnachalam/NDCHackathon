@@ -8,6 +8,8 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class DaoService {
@@ -43,5 +45,15 @@ public class DaoService {
             return "";
         }
         return data.getObjectToStore();
+    }
+
+    public List<Object> getAll(String collectionName) {
+        List<Object> objectToStoreList = new ArrayList<>();
+        List<Data> dataList = mongoTemplate
+                .findAll(Data.class, collectionName);
+        for (Data data:dataList) {
+            objectToStoreList.add(data.getObjectToStore());
+        }
+        return objectToStoreList;
     }
 }
