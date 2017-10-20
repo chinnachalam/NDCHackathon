@@ -1,8 +1,10 @@
 package tcs.ndc.hackathon.ndcrest.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.commons.io.IOUtils;
 import org.iata.ndc.schema.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -22,9 +24,15 @@ import tcs.ndc.hackathon.ndcrest.model.order.response.OrderResponse;
 import tcs.ndc.hackathon.ndcrest.model.shop.ShopDetails;
 import tcs.ndc.hackathon.ndcrest.service.OrderService;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
+import javax.imageio.ImageIO;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.RenderedImage;
+import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -144,11 +152,37 @@ public class RestController {
         return orderService.createOrder(shopId);
     }
 
-    @RequestMapping(value = "/createorder", method = RequestMethod.POST)
-    @ResponseBody
-    public OrderView createOrder(@RequestBody OrderCreate orderCreate) {
-        //return orderService.createOrder(orderCreate);
-        return null;
+ /*   @ResponseBody
+    @RequestMapping(value = "/getImage/{shopId}/{imageID}", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
+    public Object getImage(@PathVariable String shopId, @PathVariable String imageId) throws IOException {
+            InputStream in = RestController.class.getResourceAsStream("/"+shopId+"/"+imageId);
+            return IOUtils.toByteArray(in);
+
+        }*/
+
+    @GetMapping(
+            value = "/getImage/{shopId}/{imageID}",
+            produces = MediaType.IMAGE_JPEG_VALUE
+    )
+    public @ResponseBody byte[] getImageWithMediaType(@PathVariable String shopId, @PathVariable String imageId) throws IOException {
+        //InputStream in = RestController.class.getClassLoader().getResourceAsStream("E://ZX Projects/_REPO/NDC_Hackathon_2017/Java/github/NDCHackathon/ndc/ndc-rest/generated/"+shopId+"/"+imageId+".png");
+
+        //File file = new File("E://ZX Projects/_REPO/NDC_Hackathon_2017/Java/github/NDCHackathon/ndc/ndc-rest/generated/"+shopId+"/"+imageId+".png");
+        //InputStream in = new FileInputStream(file);//getClass().getResourceAsStream("E://ZX Projects/_REPO/NDC_Hackathon_2017/Java/github/NDCHackathon/ndc/ndc-rest/generated/f7625256-fc16-419e-b83a-fd5a9ef1fe93/6af48fb3-841c-4a55-a4f7-c11446ca2c6a.png");
+
+        InputStream in = getClass()
+                .getResourceAsStream("E://ZX Projects/_REPO/NDC_Hackathon_2017/Java/github/NDCHackathon/ndc/ndc-rest/generated/f7625256-fc16-419e-b83a-fd5a9ef1fe93/f93845bb-64c4-4dfb-9919-99f5a7b38b77.png");
+        return IOUtils.toByteArray(in);
+    }
+    @GetMapping(
+            value = "/getImage",
+            produces = MediaType.IMAGE_JPEG_VALUE
+    )
+    public @ResponseBody byte[] getImageWithMediaType2() throws IOException {
+        InputStream input = new FileInputStream("E://ZX Projects/_REPO/NDC_Hackathon_2017/Java/github/NDCHackathon/ndc/ndc-rest/generated/f7625256-fc16-419e-b83a-fd5a9ef1fe93/f93845bb-64c4-4dfb-9919-99f5a7b38b77.png");
+       /* InputStream in = getClass()
+                .getResourceAsStream("E://ZX Projects/_REPO/NDC_Hackathon_2017/Java/github/NDCHackathon/ndc/ndc-rest/generated/f7625256-fc16-419e-b83a-fd5a9ef1fe93/f93845bb-64c4-4dfb-9919-99f5a7b38b77.png");*/
+        return IOUtils.toByteArray(input);
     }
 
     @ExceptionHandler
@@ -164,6 +198,16 @@ public class RestController {
         //error.setStackTrace(stringWriter.toString());
         exception.printStackTrace();
         return error;
+    }
+
+    public static void main(String args[]) {
+
+        try {
+            new RestController().getImageWithMediaType("a6bb035c-d6c3-48f1-a729-227039a4a256", "4273180b-3871-412e-aca9-10ad28d54b8e");
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 }

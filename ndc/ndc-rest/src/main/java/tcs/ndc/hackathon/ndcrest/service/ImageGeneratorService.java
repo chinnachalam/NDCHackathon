@@ -2,6 +2,7 @@
 package tcs.ndc.hackathon.ndcrest.service;
 
 import com.pdfcrowd.Pdfcrowd;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import tcs.ndc.hackathon.ndcrest.model.offer.response.Connection;
 import tcs.ndc.hackathon.ndcrest.model.offer.response.Offer;
@@ -9,16 +10,30 @@ import tcs.ndc.hackathon.ndcrest.model.offer.response.Segment;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+
 @Component
 public class ImageGeneratorService {
 
-    public String buildConnectionImageLink(String shopId, Connection connection) {
-        new File("./ndc-rest/generated/" + shopId).mkdir();
-        String imageLink = "./ndc-rest/generated/" + shopId +"/" + UUID.randomUUID().toString() +".png";
+    @Async
+    public String createConnectionImage(String shopId, Connection connection) {
+        String imageID = UUID.randomUUID().toString();
+
+        try {
+        new File("./ndc/ndc-rest/generated/"+shopId).mkdir();
+        Path path = Paths.get("./ndc-rest/generated/"+shopId);
+        Files.createDirectories(path);
+        String imageLinkHQ = "./ndc/ndc-rest/generated/" + shopId + "/" + imageID + ".png";
+        //String imageLinkLQ = "./ndc-rest/generated/" + shopId +"/" + UUID.randomUUID().toString() +".png";
+
         List<Segment> segments = connection.getSegments();
         String departureTime = segments.get(0).getDeparture().getTime();
         String arrivalTime = segments.get(segments.size()-1).getArrival().getTime();
@@ -36,7 +51,6 @@ public class ImageGeneratorService {
         String arrivalDate = segments.get(0).getArrival().getDate();
         String flightNumber = segments.get(0).getMarketingAirline();
 
-        try {
             Pdfcrowd.HtmlToImageClient client = new Pdfcrowd.HtmlToImageClient("vivekmsv", "80ec699d06907ced9a24492c31c6a0f8");
             client.setOutputFormat("png");
             /*File file = new File("af.png");
@@ -82,7 +96,11 @@ public class ImageGeneratorService {
                     "            </div>\n" +
                     "        </div>\n" +
                     "    </div>\n" +
-                    "    <div class=\"margin\" style=\"margin-bottom: 30px;\"></div>\n" +
+                    "</body>\n" +
+                    "\n" +
+                    "</html>\n", imageLinkHQ);
+
+            /*client.convertStringToFile( "    <div class=\"margin\" style=\"margin-bottom: 30px;\"></div>\n" +
                     "    <div class=\"card1x\" style=\"width: 283px; height: 160px; border:1px solid #868686; font-family:Arial, sans-serif;\">\n" +
                     "        <div class=\"border\" style=\"width: 283px; height: 4px; background:#245c7c; \"></div>\n" +
                     "        <div class=\"content\" style=\"margin: 15px; width:253px; height:148px;\">\n" +
@@ -114,23 +132,18 @@ public class ImageGeneratorService {
                     "                <div style=\"font-size: 12px; color:#333333; font-family: helvetica;\">Extras: Meal, Wifi, Inflight Entertainment</div>\n" +
                     "            </div>\n" +
                     "        </div>\n" +
-                    "    </div>\n" +
-                    "</body>\n" +
-                    "\n" +
-                    "</html>\n", imageLink);
+                    "    </div>\n", imageLinkLQ);*/
 
             System.out.println("Connection Image Generated");
         } catch (Pdfcrowd.Error error) {
-            // report the error to the standard error stream
-            System.err.println("Pdfcrowd Error: " + error);
+            System.err.println("Error: " + error);
         } catch (IOException error) {
-            // report the error to the standard error stream
-            System.err.println("IO Error: " + error.getMessage());
+            System.err.println("Error: " + error.getMessage());
         }
-        return imageLink;
+        return imageID;
     }
 
-    public static void main(String args[]) {
+    /*public static void main(String args[]) {
         new ImageGeneratorService().buildConnectionImageLink(null,null);
-    }
+    }*/
 }

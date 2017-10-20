@@ -19,8 +19,10 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 @Component
 public class OfferResponseMapper {
 
-    @Autowired DatabaseRestConsumer databaseRestConsumer;
-    @Autowired ImageGeneratorService imageGeneratorService;
+    @Autowired
+    DatabaseRestConsumer databaseRestConsumer;
+    @Autowired
+    ImageGeneratorService imageGeneratorService;
 
     public OfferResponse map(AirShoppingRS response) throws Exception {
         String shopId = UUID.randomUUID().toString();
@@ -69,7 +71,7 @@ public class OfferResponseMapper {
                             for (PricedFlightOfferAssocType pricedFlightOfferAssoc : offerPrice.getRequestedDate().getAssociations()) {
                                 offer.setServices(mapServices(pricedFlightOfferAssoc.getAssociatedService(), shopId, offerId));
                             }
-                            if(!filterOffer(offer)) {
+                            if (!filterOffer(offer)) {
                                 databaseRestConsumer.saveWithId(offer, "offer", offerId);
                                 if (true) {
                                     offer.setServices(null);
@@ -83,17 +85,20 @@ public class OfferResponseMapper {
                     }
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
-        if(offers.size()>4) {
-            offers.subList(4, offers.size()).clear();
-            for(int index=0; index<offers.size(); index++) {
-                String imageLink = imageGeneratorService.buildConnectionImageLink(shopId, offers.get(index).getConnection());
-                offers.get(index).getConnection().setCardLink(imageLink);
+        offers.subList(4, offers.size()).clear();
+        for (int index = 0; index < offers.size(); index++) {
+            String imageId = imageGeneratorService.createConnectionImage(shopId, offers.get(index).getConnection());
+            Offer offer = offers.get(index);
+            try {
+                offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).getImageWithMediaType(shopId, imageId)).withRel("cardLink"));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            //offers.get(index).getConnection().setCardLink(imageLink);
         }
         return offerResponse;
     }
@@ -161,10 +166,10 @@ public class OfferResponseMapper {
     private String buildConnectionTime(Duration duration) {
         Date connectionDate = new Date();
         long timeMilliseconds = duration.getTimeInMillis(connectionDate);
-        long minute = (timeMilliseconds / (1000*60)) % 60;
-        long hour = (timeMilliseconds / (1000*60*60));
+        long minute = (timeMilliseconds / (1000 * 60)) % 60;
+        long hour = (timeMilliseconds / (1000 * 60 * 60));
         String connectionTime = String.format("%2dH%02dM", hour, minute).trim();
-        return  connectionTime;
+        return connectionTime;
     }
 
     private boolean filterOffer(Offer offer) {
