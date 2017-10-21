@@ -5,6 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
 import org.springframework.stereotype.Component;
 import tcs.ndc.hackathon.ndcrest.consumer.DatabaseRestConsumer;
+import tcs.ndc.hackathon.ndcrest.consumer.MileConsumer;
+import tcs.ndc.hackathon.ndcrest.mapper.core.MilesRequestMapper;
+import tcs.ndc.hackathon.ndcrest.model.miles.MilesRequest;
+import tcs.ndc.hackathon.ndcrest.model.miles.response.MilesResponse;
 import tcs.ndc.hackathon.ndcrest.model.offer.response.*;
 import tcs.ndc.hackathon.ndcrest.service.ImageGeneratorService;
 
@@ -28,6 +32,10 @@ public class OfferResponseMapper {
     ImageGeneratorService imageGeneratorService;
     @Autowired
     private ServletContext servletContext;
+    @Autowired
+    private MilesRequestMapper milesRequestMapper;
+    @Autowired
+    private MileConsumer mileConsumer;
 
     public OfferResponse map(HttpServletRequest request, AirShoppingRS response) throws Exception {
         String path = request.getRequestURL().toString().replace(request.getRequestURI().toString(), request.getContextPath().toString());
@@ -97,17 +105,21 @@ public class OfferResponseMapper {
 
         offers.subList(4, offers.size()).clear();
         for (int index = 0; index < offers.size(); index++) {
-            String imageId = imageGeneratorService.createConnectionImage(shopId, offers.get(index).getConnection());
             Offer offer = offers.get(index);
+            String miles = "0";
             try {
-                //offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).getImageWithMediaType2(shopId, imageId)).withRel("cardLink"));
-                offer.add(new Link(path + "/image/"+shopId+"/"+imageId+".png", "carouselConnectionImage"));
-                //offer.add(new Link("https://a598686c.ngrok.io/ndcrest/getImageDummy/"+shopId+"/"+imageId, "cardLink"));
-                //System.out.println(servletContext.getContextPath());
+                MilesRequest milesRequest = milesRequestMapper.map(offer);
+                MilesResponse milesResponse = mileConsumer.getMiles(milesRequest);
+                miles =  milesResponse.getFlights().get(0).getPrograms().get(0).getStatusTiers().get(0).getMileageEarnings().get(0).getValue();
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            //offers.get(index).getConnection().setCardLink(imageLink);
+            String imageId = imageGeneratorService.createConnectionImage(shopId, offers.get(index).getConnection(), miles);
+            try {
+                offer.add(new Link(path + "/image/"+shopId+"/"+imageId+".png", "carouselConnectionImage"));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         return offerResponse;
     }

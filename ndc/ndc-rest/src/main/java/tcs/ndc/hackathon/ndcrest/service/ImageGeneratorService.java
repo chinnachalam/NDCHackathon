@@ -24,7 +24,7 @@ import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
 public class ImageGeneratorService {
 
     @Async
-    public String createConnectionImage(String shopId, Connection connection) {
+    public String createConnectionImage(String shopId, Connection connection, String miles) {
         String imageID = UUID.randomUUID().toString();
 
         try {
@@ -93,6 +93,9 @@ public class ImageGeneratorService {
                     "\n" +
                     "            <div class=\"row\" style=\"margin-top: 20px\">\n" +
                     "                <div style=\"font-size: 24px; color:#333333; font-family: helvetica;\">Extras: Meal, Wifi, Inflight Entertainment</div>\n" +
+                    "            </div>\n" +
+                    "            <div class=\"row\" style=\"margin-top: 20px\">\n" +
+                    "                <div style=\"font-size: 16px; color:green; font-family: helvetica;\">Earns "+miles+" miles</div>\n" +
                     "            </div>\n" +
                     "        </div>\n" +
                     "    </div>\n" +

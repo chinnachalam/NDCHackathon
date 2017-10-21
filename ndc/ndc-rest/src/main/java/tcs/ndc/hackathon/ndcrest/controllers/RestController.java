@@ -161,7 +161,7 @@ public class RestController {
             produces = MediaType.IMAGE_PNG_VALUE
     )
     public @ResponseBody byte[] getImage(HttpServletRequest request, @PathVariable String shopId, @PathVariable String imageId) throws IOException {
-        InputStream input = new FileInputStream("E://ZX Projects/_REPO/NDC_Hackathon_2017/Java/github/NDCHackathon/ndc/ndc-rest/generated/"+shopId+"/"+imageId+".png");
+        InputStream input = new FileInputStream("C:/dev/workspace/NDCDEV/NDCHackathon/ndc/ndc-rest/generated/"+shopId+"/"+imageId+".png");
         return IOUtils.toByteArray(input);
     }
 
