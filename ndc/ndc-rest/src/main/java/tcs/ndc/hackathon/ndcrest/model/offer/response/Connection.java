@@ -8,7 +8,6 @@ public class Connection {
     private String fareBaseCode;
     private String cabinCode;
     private String connectionTime;
-    private String cardLink;
 
     public List<Segment> getSegments() {
         return segments;
@@ -41,12 +40,5 @@ public class Connection {
     public void setConnectionTime(String connectionTime) {
         this.connectionTime = connectionTime;
     }
-
-    public String getCardLink() {
-        return cardLink;
-    }
-
-    public void setCardLink(String cardLink) {
-        this.cardLink = cardLink;
-    }
+    
 }

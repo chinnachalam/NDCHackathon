@@ -2,11 +2,14 @@ package tcs.ndc.hackathon.ndcrest.mapper.offer;
 
 import org.iata.ndc.schema.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Link;
 import org.springframework.stereotype.Component;
 import tcs.ndc.hackathon.ndcrest.consumer.DatabaseRestConsumer;
 import tcs.ndc.hackathon.ndcrest.model.offer.response.*;
 import tcs.ndc.hackathon.ndcrest.service.ImageGeneratorService;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.datatype.Duration;
 import java.util.ArrayList;
 import java.util.Date;
@@ -23,8 +26,11 @@ public class OfferResponseMapper {
     DatabaseRestConsumer databaseRestConsumer;
     @Autowired
     ImageGeneratorService imageGeneratorService;
+    @Autowired
+    private ServletContext servletContext;
 
-    public OfferResponse map(AirShoppingRS response) throws Exception {
+    public OfferResponse map(HttpServletRequest request, AirShoppingRS response) throws Exception {
+        String path = request.getRequestURL().toString().replace(request.getRequestURI().toString(), request.getContextPath().toString());
         String shopId = UUID.randomUUID().toString();
         OfferResponse offerResponse = new OfferResponse();
         List<Offer> offers = new ArrayList<>();
@@ -94,7 +100,10 @@ public class OfferResponseMapper {
             String imageId = imageGeneratorService.createConnectionImage(shopId, offers.get(index).getConnection());
             Offer offer = offers.get(index);
             try {
-                offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).getImageWithMediaType(shopId, imageId)).withRel("cardLink"));
+                //offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).getImageWithMediaType2(shopId, imageId)).withRel("cardLink"));
+                offer.add(new Link(path + "/image/"+shopId+"/"+imageId+".png", "carouselConnectionImage"));
+                //offer.add(new Link("https://a598686c.ngrok.io/ndcrest/getImageDummy/"+shopId+"/"+imageId, "cardLink"));
+                //System.out.println(servletContext.getContextPath());
             } catch (Exception e) {
                 e.printStackTrace();
             }

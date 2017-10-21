@@ -28,10 +28,10 @@ public class ImageGeneratorService {
         String imageID = UUID.randomUUID().toString();
 
         try {
-        new File("./ndc/ndc-rest/generated/"+shopId).mkdir();
+        new File("./ndc-rest/generated/"+shopId).mkdir();
         Path path = Paths.get("./ndc-rest/generated/"+shopId);
         Files.createDirectories(path);
-        String imageLinkHQ = "./ndc/ndc-rest/generated/" + shopId + "/" + imageID + ".png";
+        String imageLinkHQ = "./ndc-rest/generated/" + shopId + "/" + imageID + ".png";
         //String imageLinkLQ = "./ndc-rest/generated/" + shopId +"/" + UUID.randomUUID().toString() +".png";
 
         List<Segment> segments = connection.getSegments();

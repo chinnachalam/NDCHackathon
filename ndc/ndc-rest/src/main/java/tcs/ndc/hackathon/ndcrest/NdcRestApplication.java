@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
@@ -17,7 +19,7 @@ import tcs.ndc.hackathon.ndccore.NDCConsumer;
 import java.net.InetAddress;
 
 @SpringBootApplication
-public class NdcRestApplication {
+public class NdcRestApplication extends SpringBootServletInitializer{
 
     @Value("${ndc.service.url}")
     private String ndcServiceUrl;
@@ -74,4 +76,11 @@ public class NdcRestApplication {
     public ElasticsearchOperations elasticsearchTemplate() throws Exception {
         return new ElasticsearchTemplate(client());
     }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(NdcRestApplication.class);
+    }
+
+
 }
