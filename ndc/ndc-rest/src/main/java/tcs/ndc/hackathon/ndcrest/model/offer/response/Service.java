@@ -2,11 +2,12 @@ package tcs.ndc.hackathon.ndcrest.model.offer.response;
 
 import org.springframework.hateoas.ResourceSupport;
 
-public class Service extends ResourceSupport{
+public class Service extends ResourceSupport implements Comparable<Service> {
     private String serviceId;
     private String code;
     private String description;
-    private String price;
+    private Integer price;
+    private String name;
 
     public String getServiceId() {
         return serviceId;
@@ -32,11 +33,25 @@ public class Service extends ResourceSupport{
         this.description = description;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    @Override
+    public int compareTo(Service service) {
+        int comparePrice = ((Service) service).getPrice();
+        return this.price - comparePrice;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

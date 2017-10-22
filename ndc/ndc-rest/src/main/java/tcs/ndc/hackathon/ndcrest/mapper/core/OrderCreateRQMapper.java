@@ -156,20 +156,44 @@ public class OrderCreateRQMapper {
         responseID.setValue(shopId);
         shoppingResponseOrderType.setResponseID(responseID);
 
-        //Offer List
+        //Order-Offer List
         List<ShoppingResponseOrderType.Offer> offerList = new ArrayList<>();
         Map<String, String> addedDetails = shopDetails.getAddedDetails();
 
-        ShoppingResponseOrderType.Offer offer = new ShoppingResponseOrderType.Offer();
+        ShoppingResponseOrderType.Offer order_offer = new ShoppingResponseOrderType.Offer();
         ItemIDType itemIDType = new ItemIDType();
         itemIDType.setOwner("C9");
         itemIDType.setValue("1");
-        offer.setOfferID(itemIDType);
+        order_offer.setOfferID(itemIDType);
         List<ShoppingResponseOrderType.Offer.OfferItem> offerItemList = new ArrayList<>();
+        List<Offer> shoppingOfferList = new ArrayList<>();
+        List<Offer> shoppingServiceList = new ArrayList<>();
+
+        for(Offer offer_offer : shopDetails.getOffers()) {
+            ShoppingResponseOrderType.Offer.OfferItem order_offerItem = new ShoppingResponseOrderType.Offer.OfferItem();
+            ItemIDType itemIDTypeOfferItem = new ItemIDType();
+
+            itemIDTypeOfferItem.setObjectKey("1");
+            itemIDTypeOfferItem.setOwner("C9");
+            itemIDTypeOfferItem.setValue("1_1");
+            order_offerItem.setOfferItemID(itemIDTypeOfferItem);
+            List<Object> passengerList = new ArrayList<>();
+            passengerList.add("SH1");
+            order_offerItem.setPassengers(passengerList);
+            offerItemList.add(order_offerItem);
+        }
         if(addedDetails!=null) {
             for (Map.Entry<String, String> entry : addedDetails.entrySet()) {
                 //Service Offers
-                if ("service".equals(entry.getValue().toLowerCase())) {
+                /*if ("service".equals(entry.getValue().toLowerCase())) {
+                    shoppingServiceList.add(entry.getKey());
+                }*/
+                if ("offer".equals(entry.getValue().toLowerCase())) {
+                    Offer shoppingOffer = databaseRestConsumer.get("offer", entry.getKey(), Offer.class).getBody();
+                    shoppingOfferList.add(shoppingOffer);
+                }
+
+                /*if ("service".equals(entry.getValue().toLowerCase())) {
                     ShoppingResponseOrderType.Offer.OfferItem offerItem = new ShoppingResponseOrderType.Offer.OfferItem();
                     ItemIDType itemIDTypeOfferItem = new ItemIDType();
                     itemIDTypeOfferItem.setObjectKey("ID1");
@@ -180,7 +204,7 @@ public class OrderCreateRQMapper {
                     passengerList.add("SH1");
                     offerItem.setPassengers(passengerList);
                     offerItemList.add(offerItem);
-                }
+                }*/
             }
         } else {
             //throw exception;
@@ -195,15 +219,15 @@ public class OrderCreateRQMapper {
             offerItem.setPassengers(passengerList);
             offerItemList.add(offerItem);
         }
-        offer.setOfferItems(offerItemList);
+        order_offer.setOfferItems(offerItemList);
 
         ShoppingResponseOrderType.Offer.TotalPrice totalPrice = new ShoppingResponseOrderType.Offer.TotalPrice();
         SimpleCurrencyPriceType simpleCurrencyPriceType = new SimpleCurrencyPriceType();
         simpleCurrencyPriceType.setCode("EUR");
         simpleCurrencyPriceType.setValue(new BigDecimal("1500"));
         totalPrice.setSimpleCurrencyPrice(simpleCurrencyPriceType);
-        offer.setTotalPrice(totalPrice);
-        offerList.add(offer);
+        order_offer.setTotalPrice(totalPrice);
+        offerList.add(order_offer);
         shoppingResponseOrderType.setOffers(offerList);
 
         orderItems.setShoppingResponse(shoppingResponseOrderType);

@@ -14,6 +14,9 @@ public class Offer extends ResourceSupport {
     private Price price;
     private Connection connection;
     private List<Service> services;
+    private String offerId;
+    private boolean bestOfferStatus;
+    private String bestOfferReason;
 
     public Price getPrice() {
         return price;
@@ -37,5 +40,29 @@ public class Offer extends ResourceSupport {
 
     public void setServices(List<Service> services) {
         this.services = services;
+    }
+
+    public String getOfferId() {
+        return offerId;
+    }
+
+    public void setOfferId(String offerId) {
+        this.offerId = offerId;
+    }
+
+    public String getBestOfferReason() {
+        return bestOfferReason;
+    }
+
+    public void setBestOfferReason(String bestOfferReason) {
+        this.bestOfferReason = bestOfferReason;
+    }
+
+    public boolean isBestOfferStatus() {
+        return bestOfferStatus;
+    }
+
+    public void setBestOfferStatus(boolean bestOfferStatus) {
+        this.bestOfferStatus = bestOfferStatus;
     }
 }
