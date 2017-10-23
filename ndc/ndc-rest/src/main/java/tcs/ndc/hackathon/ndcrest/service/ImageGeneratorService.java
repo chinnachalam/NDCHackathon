@@ -28,7 +28,7 @@ public class ImageGeneratorService {
     private String imageLogoPath;
 
     @Async
-    public String createConnectionImage(String shopId, Connection connection) {
+    public String createConnectionImage(String shopId, Connection connection, String miles) {
         String imageID = UUID.randomUUID().toString();
 
         try {
@@ -54,12 +54,12 @@ public class ImageGeneratorService {
         String departureDate = segments.get(0).getDeparture().getDate();
         String arrivalDate = segments.get(0).getArrival().getDate();
         String flightNumber = segments.get(0).getMarketingAirline();
-        String airlineLogoPath = imageLogoPath + flightNumber.substring(0,2) + ".png";
+        String airlineLogoPath = "https://i.imgur.com/CompHQs.png";//imageLogoPath + flightNumber.substring(0,2) + ".png";
 
             Pdfcrowd.HtmlToImageClient client = new Pdfcrowd.HtmlToImageClient("vivekmsv", "80ec699d06907ced9a24492c31c6a0f8");
             client.setOutputFormat("png");
-            client.setScreenshotWidth(575);
-            client.setScreenshotHeight(340);
+            client.setScreenshotWidth(580);
+            client.setScreenshotHeight(350);
             /*File file = new File("af.png");
             System.out.println(file.getAbsolutePath());*/
             client.convertStringToFile("<!DOCTYPE html>\n" +
@@ -93,13 +93,16 @@ public class ImageGeneratorService {
                     "            </div>\n" +
                     "            <div class=\"row\" style=\"widows: 526px; margin-top: 25px; display: table;\">\n" +
                     "                <div style=\"width:260px; float:left;\">\n" +
-                    "                    <img src=\"" + airlineLogoPath + "\" style=\"margin-top: 5px;\">\n" +
+                    "                    <img src=\"" + airlineLogoPath + "\" style=\"margin-top: 5px; width:63px; height:auto;\">\n" +
                     "                </div>\n" +
-                    "                <div style=\"width:263px;font-size:28px; color:#838383; font-family: helvetica;color:#245c7c;float:right; text-align: right\">"+flightNumber+"</div>\n" +
+                    "                <div style=\"width:263px;font-size:18px; color:#838383; font-family: helvetica;color:#245c7c;float:right; text-align: right\">"+flightNumber+"</div>\n" +
                     "            </div>\n" +
                     "\n" +
                     "            <div class=\"row\" style=\"margin-top: 20px\">\n" +
-                    "                <div style=\"font-size: 24px; color:#333333; font-family: helvetica;\">Extras: Meal, Wifi, Inflight Entertainment</div>\n" +
+                    "                <div style=\"font-size: 14px; color:#333333; font-family: helvetica;\">Extras: Meal, Wifi, Inflight Entertainment</div>\n" +
+                    "            </div>\n" +
+                    "            <div class=\"row\" style=\"margin-top: 20px\">\n" +
+                    "                <div style=\"font-size: 13px; color:green; font-family: helvetica;\">Earns "+miles+" miles</div>\n" +
                     "            </div>\n" +
                     "        </div>\n" +
                     "    </div>\n" +

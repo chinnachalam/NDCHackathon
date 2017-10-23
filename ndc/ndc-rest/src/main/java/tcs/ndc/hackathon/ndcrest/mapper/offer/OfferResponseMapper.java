@@ -5,6 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.hateoas.Link;
 import org.springframework.stereotype.Component;
 import tcs.ndc.hackathon.ndcrest.consumer.DatabaseRestConsumer;
+import tcs.ndc.hackathon.ndcrest.consumer.MileConsumer;
+import tcs.ndc.hackathon.ndcrest.mapper.core.MilesRequestMapper;
+import tcs.ndc.hackathon.ndcrest.model.miles.MilesRequest;
+import tcs.ndc.hackathon.ndcrest.model.miles.response.MilesResponse;
 import tcs.ndc.hackathon.ndcrest.model.offer.response.*;
 import tcs.ndc.hackathon.ndcrest.service.ImageGeneratorService;
 
@@ -28,9 +32,14 @@ public class OfferResponseMapper {
     ImageGeneratorService imageGeneratorService;
     @Autowired
     private ServletContext servletContext;
+
     String preferredAncillaryType = "MEL";
     String preferredAncillaryName = "Kosher meal";
     String preferredAncillaryDescription = "Prepared by kosher caterers under rabbinical supervisio";
+    @Autowired
+    private MilesRequestMapper milesRequestMapper;
+    @Autowired
+    private MileConsumer mileConsumer;
 
     public OfferResponse map(HttpServletRequest request, AirShoppingRS response) throws Exception {
         String path = request.getRequestURL().toString().replace(request.getRequestURI().toString(), request.getContextPath().toString());
@@ -95,6 +104,8 @@ public class OfferResponseMapper {
                             service.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).addServiceToShop(shopId, offerId, serviceId)).withRel("addServiceToShop"));
                             service.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).removeServiceFromShop(shopId, offerId, serviceId)).withRel("removeServiceFromShop"));
                             offer.getServices().add(service);
+                            offer.setBestOfferStatus(true);
+                            offer.setBestOfferReason("Comfortable");
                             if (!filterOffer(budgetAmount, offer)) {
                                 databaseRestConsumer.saveWithId(offer, "offer", offerId);
                                 /*if (true) {
@@ -115,7 +126,7 @@ public class OfferResponseMapper {
 
         if(offers.size()>0) {
             //List<String> list = offers.stream().map(Offer::getConnection()).collect(Collectors.toList());
-             List<Offer> offerings = new ArrayList<>();
+            /*List<Offer> offerings = new ArrayList<>();
             if (offers.size() > 5) {
                 Random random = new Random();
                 int randNo = 0;
@@ -125,19 +136,27 @@ public class OfferResponseMapper {
                 }
             } else {
                 offerings.addAll(offers);
-            }
+            }*/
 
             //List<Offer> offerList = new ArrayList<>();
-            offers = personalizeOffers(offerings);
+            offers.subList(5, offers.size()).clear();
 
-            //offers.subList(5, offers.size()).clear();
+            offers = personalizeOffers(offers);
+
             for (int index = 0; index < offers.size(); index++) {
                 Offer offer = offers.get(index);
                 offer.setServices(null);
-                String imageId=null;
-                //String imageId = imageGeneratorService.createConnectionImage(shopId, offers.get(index).getConnection());
+                String miles = "6400";
                 try {
-                    //offer.add(linkTo(methodOn(tcs.ndc.hackathon.ndcrest.controllers.RestController.class).getImageWithMediaType2(shopId, imageId)).withRel("cardLink"));
+                    MilesRequest milesRequest = milesRequestMapper.map(offer);
+                    MilesResponse milesResponse = mileConsumer.getMiles(milesRequest);
+                    miles = milesResponse.getFlights().get(0).getPrograms().get(0).getStatusTiers().get(0).getMileageEarnings().get(0).getValue();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                String imageId = imageGeneratorService.createConnectionImage(shopId, offers.get(index).getConnection(), miles);
+                //String imageId = imageGeneratorService.createConnectionImage(shopId, offers.get(index).getConnection(), miles);
+                try {
                     offer.add(new Link(path + "/image/" + shopId + "/" + imageId + ".png", "carouselConnectionImage"));
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -254,40 +273,15 @@ public class OfferResponseMapper {
         int preferredMealIndex=0;
         int bestSeatIndex=0;
 
-        boolean mealSet = false;
-        for (int i = 0; i < offerList.size(); i++) {
-
-            if (lowPriceIndex != i) {
-                if(!mealSet) {
-                    Offer preferredMealOffer = new Offer();
-                    preferredMealOffer = offerList.get(i);
-                    Service service = new Service();
-                    service.setCode(preferredAncillaryType);
-                    service.setName(preferredAncillaryName);
-                    service.setDescription(preferredAncillaryDescription);
-                    service.setPrice(10);
-                    preferredMealOffer.getServices().add(service);
-                    preferredMealOffer.setBestOfferStatus(true);
-                    preferredMealOffer.setBestOfferReason("Your favourite Meal");
-                    offerListPersonalized.add(preferredMealOffer);
-                    mealSet=true;
-                }
-                else{
-                            /*Offer preferredMealOffer = offerList.get(preferredMealIndex);
-                            preferredMealOffer.setBestOfferStatus(true);
-                            preferredMealOffer.setBestOfferReason("Your favourite Meal");
-                            offerListPersonalized.add(preferredMealOffer);*/
-                }
-            } else { }
-        }
-
         Double lowestPrice=0.0;
         if(offerList.size()>0) {
+            lowestPrice = Double.valueOf(offerList.get(0).getPrice().getTotalAmount());
             for (int i = 0; i < offerList.size(); i++) {
-                System.out.println("Lowest : " + Double.valueOf(offerList.get(0).getPrice().getTotalAmount()));
+                System.out.println("Lowest Index : " + lowPriceIndex);
                 System.out.println("Current : " + Double.valueOf(offerList.get(i).getPrice().getTotalAmount()));
-                if (lowestPrice > Double.valueOf(offerList.get(i).getPrice().getTotalAmount())) {
+                if (lowestPrice < Double.valueOf(offerList.get(i).getPrice().getTotalAmount())) {
                     lowPriceIndex=i;
+                    lowestPrice=Double.valueOf(offerList.get(i).getPrice().getTotalAmount());
                 }
             }
 
@@ -299,6 +293,8 @@ public class OfferResponseMapper {
             cheapestOffer.setBestOfferStatus(true);
             cheapestOffer.setBestOfferReason("Lowest Fare");
             offerListPersonalized.add(cheapestOffer);
+            offerList.remove(lowPriceIndex);
+
 
             for (int i = 1; i < offerList.size(); i++) {
 
@@ -315,8 +311,58 @@ public class OfferResponseMapper {
                     }
                 }
             }
-            //if(preferredMealIndex==0) {
+            if(preferredMealIndex!=lowPriceIndex) {
+                Offer preferredMealOffer = new Offer();
+                preferredMealOffer = offerList.get(preferredMealIndex);
+                preferredMealOffer.setPrice(offerList.get(preferredMealIndex).getPrice());
+                preferredMealOffer.setConnection(offerList.get(preferredMealIndex).getConnection());
+                preferredMealOffer.setServices(offerList.get(preferredMealIndex).getServices());
+                preferredMealOffer.setBestOfferStatus(true);
+                preferredMealOffer.setBestOfferReason("Your favourite Meal");
+                offerListPersonalized.add(preferredMealOffer);
 
+                offerList.remove(preferredMealIndex);
+            }
+
+            offerListPersonalized.addAll(offerList);
+           /* for(int i=0; i<offerList.size();i++){
+                if(!(i==lowPriceIndex || i==preferredMealIndex)) {
+                    Offer preferredMealOffer = new Offer();
+                    preferredMealOffer = offerList.get(preferredMealIndex);
+                    preferredMealOffer.setPrice(offerList.get(preferredMealIndex).getPrice());
+                    preferredMealOffer.setConnection(offerList.get(preferredMealIndex).getConnection());
+                    preferredMealOffer.setServices(offerList.get(preferredMealIndex).getServices());
+                    preferredMealOffer.setBestOfferStatus(true);
+                    preferredMealOffer.setBestOfferReason("Comfortable");
+                    offerListPersonalized.add(preferredMealOffer);
+                }
+            }*/
+            //boolean mealSet = false;
+            /*for (int i = 0; i < offerList.size(); i++) {
+
+                if (lowPriceIndex != i) {
+                    if(!mealSet) {
+                        Offer preferredMealOffer = new Offer();
+                        preferredMealOffer = offerList.get(i);
+                        Service service = new Service();
+                        service.setCode(preferredAncillaryType);
+                        service.setName(preferredAncillaryName);
+                        service.setDescription(preferredAncillaryDescription);
+                        service.setPrice(10);
+                        preferredMealOffer.getServices().add(service);
+                        preferredMealOffer.setBestOfferStatus(true);
+                        preferredMealOffer.setBestOfferReason("Your favourite Meal");
+                        offerListPersonalized.add(preferredMealOffer);
+                        mealSet=true;
+                    }
+                    else{
+                            *//*Offer preferredMealOffer = offerList.get(preferredMealIndex);
+                            preferredMealOffer.setBestOfferStatus(true);
+                            preferredMealOffer.setBestOfferReason("Your favourite Meal");
+                            offerListPersonalized.add(preferredMealOffer);*//*
+                    }
+                } else { }
+            }*/
 
             /*for(int i=1; i<offerList.size();i++) {
                 if(of)
@@ -346,7 +392,7 @@ public class OfferResponseMapper {
         }
         /*Offer offer = offerList.get(i);
         offerListPersonalized.add(offer);*/
-        offerList.addAll(offerListPersonalized);
+        //offerList.addAll(offerListPersonalized);
         return offerListPersonalized;
     }
 }

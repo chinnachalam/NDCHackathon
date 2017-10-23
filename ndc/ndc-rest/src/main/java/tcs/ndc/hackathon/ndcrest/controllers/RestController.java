@@ -62,9 +62,15 @@ public class RestController {
         String path = request.getRequestURL().toString().replace(request.getRequestURI().toString(), request.getContextPath().toString());
         System.out.println(path);
         OfferResponse offerResponse = new OfferResponse();
-                AirShoppingRQ airShoppingRQ = airShoppingRQMapper.map(offer);
-                AirShoppingRS response = ndcConsumer.airShopping(airShoppingRQ);
-                offerResponse = offerResponseMapper.map(request, response);
+        try {
+            AirShoppingRQ airShoppingRQ = airShoppingRQMapper.map(offer);
+            AirShoppingRS response = ndcConsumer.airShopping(null);
+            offerResponse = offerResponseMapper.map(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.readValue(new File("E:/ZX Projects/_REPO/NDC_Hackathon_2017/Java/github/NDCHackathon/ndc/ndc-rest/generated/OfferResponse.json"),OfferResponse.class );
+        }
         return offerResponse;
     }
 
@@ -162,6 +168,8 @@ public class RestController {
     )
     public @ResponseBody byte[] getImage(@PathVariable String shopId, @PathVariable String imageId) throws IOException {
         InputStream input = new FileInputStream("E://ZX Projects/_REPO/NDC_Hackathon_2017/Java/github/NDCHackathon/ndc/ndc-rest/generated/"+shopId+"/"+imageId+".png");
+    /*public @ResponseBody byte[] getImage(HttpServletRequest request, @PathVariable String shopId, @PathVariable String imageId) throws IOException {
+        InputStream input = new FileInputStream("C:/dev/workspace/NDCDEV/NDCHackathon/ndc/ndc-rest/generated/"+shopId+"/"+imageId+".png");*/
         return IOUtils.toByteArray(input);
     }
 

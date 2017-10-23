@@ -33,7 +33,7 @@ public class OrderViewResponseMapper {
     }
 
     public String randomString( int len ) {
-        String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+        String AB = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         SecureRandom rnd = new SecureRandom();
         StringBuilder sb = new StringBuilder(len);
         for (int i = 0; i < len; i++)
