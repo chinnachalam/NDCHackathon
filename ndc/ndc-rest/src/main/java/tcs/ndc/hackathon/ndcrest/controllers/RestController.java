@@ -1,9 +1,12 @@
 package tcs.ndc.hackathon.ndcrest.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import netscape.javascript.JSObject;
 import org.apache.commons.io.IOUtils;
 import org.iata.ndc.schema.*;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -51,19 +54,23 @@ public class RestController {
     @Autowired OrderService orderService;
     @Autowired OrderCreateRQMapper orderCreateRQMapper;
 
+    /*@Value("${image.logo.defaultPath}")
+    private String imageLogoPath;*/
+
     @RequestMapping(value = "/offers", method = RequestMethod.POST)
     @ResponseBody
-    public OfferResponse offers(HttpServletRequest request, @RequestBody Offer offer) {
+    public OfferResponse offers(HttpServletRequest request, @RequestBody Offer offer) throws Exception {
         String path = request.getRequestURL().toString().replace(request.getRequestURI().toString(), request.getContextPath().toString());
         System.out.println(path);
         OfferResponse offerResponse = new OfferResponse();
         try {
             AirShoppingRQ airShoppingRQ = airShoppingRQMapper.map(offer);
-            AirShoppingRS response = ndcConsumer.airShopping(airShoppingRQ);
+            AirShoppingRS response = ndcConsumer.airShopping(null);
             offerResponse = offerResponseMapper.map(request, response);
-        }
-        catch (Exception e) {
-            // Log here
+        } catch (Exception e) {
+            e.printStackTrace();
+            ObjectMapper objectMapper = new ObjectMapper();
+            return objectMapper.readValue(new File("E:/ZX Projects/_REPO/NDC_Hackathon_2017/Java/github/NDCHackathon/ndc/ndc-rest/generated/OfferResponse.json"),OfferResponse.class );
         }
         return offerResponse;
     }
@@ -76,7 +83,6 @@ public class RestController {
         addedDetails.put(offerId, "offer");
         shopDetails.setAddedDetails(addedDetails);
         databaseRestConsumer.saveWithId(shopDetails, "shop", shopId);
-
         return null;
     }
 
@@ -161,10 +167,21 @@ public class RestController {
             value = "/image/{shopId}/{imageId}",
             produces = MediaType.IMAGE_PNG_VALUE
     )
-    public @ResponseBody byte[] getImage(HttpServletRequest request, @PathVariable String shopId, @PathVariable String imageId) throws IOException {
-        InputStream input = new FileInputStream("C:/dev/workspace/NDCDEV/NDCHackathon/ndc/ndc-rest/generated/"+shopId+"/"+imageId+".png");
+    public @ResponseBody byte[] getImage(@PathVariable String shopId, @PathVariable String imageId) throws IOException {
+        InputStream input = new FileInputStream("E://ZX Projects/_REPO/NDC_Hackathon_2017/Java/github/NDCHackathon/ndc/ndc-rest/generated/"+shopId+"/"+imageId+".png");
+    /*public @ResponseBody byte[] getImage(HttpServletRequest request, @PathVariable String shopId, @PathVariable String imageId) throws IOException {
+        InputStream input = new FileInputStream("C:/dev/workspace/NDCDEV/NDCHackathon/ndc/ndc-rest/generated/"+shopId+"/"+imageId+".png");*/
         return IOUtils.toByteArray(input);
     }
+
+    /*@GetMapping(
+            value = "/image/logo/{airlineId}",
+            produces = MediaType.IMAGE_PNG_VALUE
+    )
+    public @ResponseBody byte[] getLogoImage(@PathVariable String airlineId) throws IOException {
+        InputStream input = new FileInputStream("imageLogoPath"+"/"+airlineId+".png");
+        return IOUtils.toByteArray(input);
+    }*/
 
     @ExceptionHandler
     @ResponseBody
@@ -181,4 +198,13 @@ public class RestController {
         return error;
     }
 
+    public static void main(String args[]) {
+            RestController restController = new RestController();
+            try {
+                restController.getImage("30d577e9-d6a0-4f6c-867e-d6a44e34f95e", "989ac27b-0ea4-4bc8-9f01-f9578c306bc0");
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+
+    }
 }

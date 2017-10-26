@@ -1,0 +1,341 @@
+{
+    "offers": [
+        {
+            "price": {
+                "totalAmount": "500.53",
+                "baseAmount": "200.00",
+                "taxAmount": "300.00"
+            },
+            "connection": {
+                "segments": [
+                    {
+                        "departure": {
+                            "airportCode": "ARN",
+                            "airportName": "Stockholm Arlanda Airport",
+                            "date": "2017-12-12",
+                            "time": "07:50"
+                        },
+                        "arrival": {
+                            "airportCode": "DXB",
+                            "airportName": "Dubai International Airport",
+                            "date": "2017-12-12",
+                            "time": "17:12"
+                        },
+                        "marketingAirline": "C9009",
+                        "operatingAirline": "C9009"
+                    },
+                    {
+                        "departure": {
+                            "airportCode": "DXB",
+                            "airportName": "Dubai International Airport",
+                            "date": "2017-12-12",
+                            "time": "18:20"
+                        },
+                        "arrival": {
+                            "airportCode": "LHR",
+                            "airportName": "Heathrow Airport",
+                            "date": "2017-12-12",
+                            "time": "21:33"
+                        },
+                        "marketingAirline": "C9175",
+                        "operatingAirline": "C9175"
+                    }
+                ],
+                "fareBaseCode": "EFO",
+                "cabinCode": "M",
+                "connectionTime": "14H43M"
+            },
+            "bestOfferStatus": true,
+            "bestOfferReason": "Lowest Fare",
+            "links": [
+                {
+                    "rel": "availableServices",
+                    "href": "http://localhost:8091/ndcrest/available-services/b627f7d6-42f0-4064-830a-f6a318d7f94e/3d30bfe4-079b-4461-9a91-737dcdb30aa3"
+                },
+                {
+                    "rel": "addOfferToShop",
+                    "href": "http://localhost:8091/ndcrest/add-offer-to-shop/b627f7d6-42f0-4064-830a-f6a318d7f94e/3d30bfe4-079b-4461-9a91-737dcdb30aa3"
+                },
+                {
+                    "rel": "removeOfferFromShop",
+                    "href": "http://localhost:8091/ndcrest/remove-offer-from-shop/b627f7d6-42f0-4064-830a-f6a318d7f94e/3d30bfe4-079b-4461-9a91-737dcdb30aa3"
+                },
+                {
+                    "rel": "carouselConnectionImage",
+                    "href": "http://localhost:8091/ndcrest/image/b627f7d6-42f0-4064-830a-f6a318d7f94e/48ca625b-03af-4ac6-a097-030355729396.png"
+                }
+            ]
+        },
+        {
+            "price": {
+                "totalAmount": "623.86",
+                "baseAmount": "353.00",
+                "taxAmount": "270.86"
+            },
+            "connection": {
+                "segments": [
+                    {
+                        "departure": {
+                            "airportCode": "ARN",
+                            "airportName": "Stockholm Arlanda Airport",
+                            "date": "2017-12-12",
+                            "time": "07:50"
+                        },
+                        "arrival": {
+                            "airportCode": "FRA",
+                            "airportName": "Frankfurt Airport",
+                            "date": "2017-12-12",
+                            "time": "09:54"
+                        },
+                        "marketingAirline": "C9013",
+                        "operatingAirline": "C9013"
+                    },
+                    {
+                        "departure": {
+                            "airportCode": "FRA",
+                            "airportName": "Frankfurt Airport",
+                            "date": "2017-12-12",
+                            "time": "11:50"
+                        },
+                        "arrival": {
+                            "airportCode": "LHR",
+                            "airportName": "Heathrow Airport",
+                            "date": "2017-12-12",
+                            "time": "12:12"
+                        },
+                        "marketingAirline": "C9191",
+                        "operatingAirline": "C9191"
+                    }
+                ],
+                "fareBaseCode": "ESO",
+                "cabinCode": "M",
+                "connectionTime": "5H22M"
+            },
+            "bestOfferStatus": true,
+            "bestOfferReason": "Your favourite Meal",
+            "links": [
+                {
+                    "rel": "availableServices",
+                    "href": "http://localhost:8091/ndcrest/available-services/b627f7d6-42f0-4064-830a-f6a318d7f94e/8d548ce7-f188-4fbd-b382-ff2dbb1aefa7"
+                },
+                {
+                    "rel": "addOfferToShop",
+                    "href": "http://localhost:8091/ndcrest/add-offer-to-shop/b627f7d6-42f0-4064-830a-f6a318d7f94e/8d548ce7-f188-4fbd-b382-ff2dbb1aefa7"
+                },
+                {
+                    "rel": "removeOfferFromShop",
+                    "href": "http://localhost:8091/ndcrest/remove-offer-from-shop/b627f7d6-42f0-4064-830a-f6a318d7f94e/8d548ce7-f188-4fbd-b382-ff2dbb1aefa7"
+                },
+                {
+                    "rel": "carouselConnectionImage",
+                    "href": "http://localhost:8091/ndcrest/image/b627f7d6-42f0-4064-830a-f6a318d7f94e/5d95128a-ec36-4af1-80b3-4dfdfd247b6d.png"
+                }
+            ]
+        },
+        {
+            "price": {
+                "totalAmount": "1368.53",
+                "baseAmount": "407.00",
+                "taxAmount": "961.53"
+            },
+            "connection": {
+                "segments": [
+                    {
+                        "departure": {
+                            "airportCode": "ARN",
+                            "airportName": "Stockholm Arlanda Airport",
+                            "date": "2017-12-12",
+                            "time": "07:50"
+                        },
+                        "arrival": {
+                            "airportCode": "DXB",
+                            "airportName": "Dubai International Airport",
+                            "date": "2017-12-12",
+                            "time": "17:12"
+                        },
+                        "marketingAirline": "C9009",
+                        "operatingAirline": "C9009"
+                    },
+                    {
+                        "departure": {
+                            "airportCode": "DXB",
+                            "airportName": "Dubai International Airport",
+                            "date": "2017-12-12",
+                            "time": "18:20"
+                        },
+                        "arrival": {
+                            "airportCode": "LHR",
+                            "airportName": "Heathrow Airport",
+                            "date": "2017-12-12",
+                            "time": "21:33"
+                        },
+                        "marketingAirline": "C9175",
+                        "operatingAirline": "C9175"
+                    }
+                ],
+                "fareBaseCode": "ERO",
+                "cabinCode": "M",
+                "connectionTime": "14H43M"
+            },
+            "bestOfferStatus": false,
+            "links": [
+                {
+                    "rel": "availableServices",
+                    "href": "http://localhost:8091/ndcrest/available-services/b627f7d6-42f0-4064-830a-f6a318d7f94e/b3007b29-0878-4550-a5e6-77635a1b9343"
+                },
+                {
+                    "rel": "addOfferToShop",
+                    "href": "http://localhost:8091/ndcrest/add-offer-to-shop/b627f7d6-42f0-4064-830a-f6a318d7f94e/b3007b29-0878-4550-a5e6-77635a1b9343"
+                },
+                {
+                    "rel": "removeOfferFromShop",
+                    "href": "http://localhost:8091/ndcrest/remove-offer-from-shop/b627f7d6-42f0-4064-830a-f6a318d7f94e/b3007b29-0878-4550-a5e6-77635a1b9343"
+                },
+                {
+                    "rel": "carouselConnectionImage",
+                    "href": "http://localhost:8091/ndcrest/image/b627f7d6-42f0-4064-830a-f6a318d7f94e/cf8167ca-026d-459c-a293-4f17d9e13a6f.png"
+                }
+            ]
+        },
+        {
+            "price": {
+                "totalAmount": "498.86",
+                "baseAmount": "228.00",
+                "taxAmount": "270.86"
+            },
+            "connection": {
+                "segments": [
+                    {
+                        "departure": {
+                            "airportCode": "ARN",
+                            "airportName": "Stockholm Arlanda Airport",
+                            "date": "2017-12-12",
+                            "time": "07:50"
+                        },
+                        "arrival": {
+                            "airportCode": "FRA",
+                            "airportName": "Frankfurt Airport",
+                            "date": "2017-12-12",
+                            "time": "09:54"
+                        },
+                        "marketingAirline": "C9013",
+                        "operatingAirline": "C9013"
+                    },
+                    {
+                        "departure": {
+                            "airportCode": "FRA",
+                            "airportName": "Frankfurt Airport",
+                            "date": "2017-12-12",
+                            "time": "11:50"
+                        },
+                        "arrival": {
+                            "airportCode": "LHR",
+                            "airportName": "Heathrow Airport",
+                            "date": "2017-12-12",
+                            "time": "12:12"
+                        },
+                        "marketingAirline": "C9191",
+                        "operatingAirline": "C9191"
+                    }
+                ],
+                "fareBaseCode": "EFO",
+                "cabinCode": "M",
+                "connectionTime": "5H22M"
+            },
+            "bestOfferStatus": false,
+            "links": [
+                {
+                    "rel": "availableServices",
+                    "href": "http://localhost:8091/ndcrest/available-services/b627f7d6-42f0-4064-830a-f6a318d7f94e/e445840b-5e91-4531-98c2-89bbd4733642"
+                },
+                {
+                    "rel": "addOfferToShop",
+                    "href": "http://localhost:8091/ndcrest/add-offer-to-shop/b627f7d6-42f0-4064-830a-f6a318d7f94e/e445840b-5e91-4531-98c2-89bbd4733642"
+                },
+                {
+                    "rel": "removeOfferFromShop",
+                    "href": "http://localhost:8091/ndcrest/remove-offer-from-shop/b627f7d6-42f0-4064-830a-f6a318d7f94e/e445840b-5e91-4531-98c2-89bbd4733642"
+                },
+                {
+                    "rel": "carouselConnectionImage",
+                    "href": "http://localhost:8091/ndcrest/image/b627f7d6-42f0-4064-830a-f6a318d7f94e/4bb0241a-bd73-4f66-9664-6585663ed5eb.png"
+                }
+            ]
+        },
+        {
+            "price": {
+                "totalAmount": "373.86",
+                "baseAmount": "103.00",
+                "taxAmount": "270.86"
+            },
+            "connection": {
+                "segments": [
+                    {
+                        "departure": {
+                            "airportCode": "ARN",
+                            "airportName": "Stockholm Arlanda Airport",
+                            "date": "2017-12-12",
+                            "time": "07:50"
+                        },
+                        "arrival": {
+                            "airportCode": "FRA",
+                            "airportName": "Frankfurt Airport",
+                            "date": "2017-12-12",
+                            "time": "09:54"
+                        },
+                        "marketingAirline": "C9013",
+                        "operatingAirline": "C9013"
+                    },
+                    {
+                        "departure": {
+                            "airportCode": "FRA",
+                            "airportName": "Frankfurt Airport",
+                            "date": "2017-12-12",
+                            "time": "11:50"
+                        },
+                        "arrival": {
+                            "airportCode": "LHR",
+                            "airportName": "Heathrow Airport",
+                            "date": "2017-12-12",
+                            "time": "12:12"
+                        },
+                        "marketingAirline": "C9191",
+                        "operatingAirline": "C9191"
+                    }
+                ],
+                "fareBaseCode": "ERO",
+                "cabinCode": "M",
+                "connectionTime": "5H22M"
+            },
+            "bestOfferStatus": false,
+            "links": [
+                {
+                    "rel": "availableServices",
+                    "href": "http://localhost:8091/ndcrest/available-services/b627f7d6-42f0-4064-830a-f6a318d7f94e/081f04a6-4dd6-4bc4-bed4-96582fc1a9cb"
+                },
+                {
+                    "rel": "addOfferToShop",
+                    "href": "http://localhost:8091/ndcrest/add-offer-to-shop/b627f7d6-42f0-4064-830a-f6a318d7f94e/081f04a6-4dd6-4bc4-bed4-96582fc1a9cb"
+                },
+                {
+                    "rel": "removeOfferFromShop",
+                    "href": "http://localhost:8091/ndcrest/remove-offer-from-shop/b627f7d6-42f0-4064-830a-f6a318d7f94e/081f04a6-4dd6-4bc4-bed4-96582fc1a9cb"
+                },
+                {
+                    "rel": "carouselConnectionImage",
+                    "href": "http://localhost:8091/ndcrest/image/b627f7d6-42f0-4064-830a-f6a318d7f94e/baf4bb8d-a3b9-4d63-adf3-75e229dfa017.png"
+                }
+            ]
+        }
+    ],
+    "links": [
+        {
+            "rel": "confirmOrder",
+            "href": "http://localhost:8091/ndcrest/confirm-order/b627f7d6-42f0-4064-830a-f6a318d7f94e"
+        },
+        {
+            "rel": "shopDetails",
+            "href": "http://localhost:8091/ndcrest/shop-details/b627f7d6-42f0-4064-830a-f6a318d7f94e"
+        }
+    ]
+}
