@@ -41,6 +41,7 @@ import java.util.*;
 import java.util.List;
 
 @Controller
+@CrossOrigin
 public class RestController {
 
     @Autowired AirShoppingRQMapper airShoppingRQMapper;
